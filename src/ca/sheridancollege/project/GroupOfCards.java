@@ -53,5 +53,23 @@ public class GroupOfCards
     public void setSize(int givenSize) {
         size = givenSize;
     }
+
+	/**
+	 * 
+	 * @param card
+	 */
+	public void addCard(Card card) {
+		// TODO - implement GroupOfCards.addCard
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param card
+	 */
+	public void removeCard(Card card) {
+		// TODO - implement GroupOfCards.removeCard
+		throw new UnsupportedOperationException();
+	}
     
 }//end class
