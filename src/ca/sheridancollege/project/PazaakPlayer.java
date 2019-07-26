@@ -4,14 +4,12 @@ public class PazaakPlayer extends Player {
 
 	private int credits;
 	private GroupOfCards hand;
-	private int wins;
-	private int cardTotal;
+	private int wins = 0;
+	private int cardTotal = 0;
 	private GroupOfCards tableHand;
+        private boolean canPlay = true;
+        private PazaakGame game = null;
 
-	public void play() {
-		// TODO - implement PazaakPlayer.play
-		throw new UnsupportedOperationException();
-	}
 
 	public int getCredits() {
 		return this.credits;
@@ -31,28 +29,33 @@ public class PazaakPlayer extends Player {
 	 * @param credits
 	 */
 	public PazaakPlayer(String name, int credits) {
-		// TODO - implement PazaakPlayer.PazaakPlayer
-		throw new UnsupportedOperationException();
+            super(name);
+            this.credits = credits;
+            hand = new GroupOfCards(4);
+            tableHand = new GroupOfCards(9);
 	}
 
-	public String getPlayerID() {
-		// TODO - implement PazaakPlayer.getPlayerID
-		throw new UnsupportedOperationException();
+        @Override
+        public String getPlayerID() {
+            return super.getPlayerID();
 	}
 
 	public void stand() {
-		// TODO - implement PazaakPlayer.stand
-		throw new UnsupportedOperationException();
+            canPlay = false;
+            game.changeTurn();
 	}
+        
+        public boolean getCanPlay() {
+            return canPlay;
+        }
 
 	public void endTurn() {
-		// TODO - implement PazaakPlayer.endTurn
-		throw new UnsupportedOperationException();
+            game.changeTurn();
 	}
 
 	public void forfeit() {
-		// TODO - implement PazaakPlayer.forfeit
-		throw new UnsupportedOperationException();
+            wins = -1;
+            game.declareWinner(); /////////////// in declareWinner(), assume that a negative number of wins means a forfeit
 	}
 
 	/**
@@ -125,6 +128,11 @@ public class PazaakPlayer extends Player {
 	public void setTableHand(GroupOfCards tableHand) {
 		this.tableHand = tableHand;
 	}
+
+    @Override
+    public void play(PazaakGame game) {
+        this.game = game;
+    }
 
 
 }

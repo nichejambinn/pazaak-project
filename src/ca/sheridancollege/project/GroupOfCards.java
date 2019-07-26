@@ -18,12 +18,13 @@ public class GroupOfCards
 {
    
     //The group of cards, stored in an ArrayList
-    private ArrayList <Card> cards;
+    private ArrayList <Card> cards = new ArrayList <Card>();
     private int size;//the size of the grouping
+    private int count = cards.size();
     
-    public GroupOfCards(int givenSize)
+    public GroupOfCards(int size)
     {
-        size = givenSize;
+        this.size = size;
     }
     
     /**
@@ -32,7 +33,7 @@ public class GroupOfCards
      */
     public ArrayList<Card> showCards()
     {
-        return cards;
+        return cards; ///////// this probably does not display as we want it to
     }
     
     public void shuffle()
@@ -47,20 +48,19 @@ public class GroupOfCards
         return size;
     }
 
-    /**
-     * @param givenSize the max size for the group of cards
-     */
-    public void setSize(int givenSize) {
-        size = givenSize;
-    }
 
 	/**
 	 * 
 	 * @param card
 	 */
 	public void addCard(Card card) {
-		// TODO - implement GroupOfCards.addCard
-		throw new UnsupportedOperationException();
+		if(count < size) {
+                    cards.add(card);
+                    count++;
+                }
+                else {
+                    System.out.println("This group already has " + size + " cards");
+                }
 	}
 
 	/**
@@ -68,8 +68,20 @@ public class GroupOfCards
 	 * @param card
 	 */
 	public void removeCard(Card card) {
-		// TODO - implement GroupOfCards.removeCard
-		throw new UnsupportedOperationException();
+            if(count > 0) {
+                    cards.remove(card);
+                    count--;
+                }
+            else {
+                    System.out.println("This group has no cards left");
+            }
 	}
+
+    /**
+     * @return the count
+     */
+    public int getCount() {
+        return count;
+    }
     
 }//end class
