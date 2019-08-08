@@ -21,15 +21,21 @@ public class SideCard extends Card {
 	 * @param value
 	 */
 	public SideCard(SideValue value) {
-		// TODO - implement SideCard.SideCard
 		super();
 		this.value = value;
 	}
 
 	@Override
 	public String toString() {
-		// TODO - implement SideCard.toString
-		return "SideCard value";
+		String top = " ____ \n";
+		String sideTop;
+		if (this.value.value > 0)
+			sideTop = "|+" + this.value.value + "  |\n";
+		else
+			sideTop = "|" + this.value.value + "  |\n";
+		String sideMiddle = "|    |\n";
+		String bottom = "|____|\n";
+		return top+sideTop+sideMiddle+bottom;
 	}
 
 }

@@ -1,8 +1,5 @@
 package ca.sheridancollege.project;
 
-import javax.swing.*;
-import java.util.ArrayList;
-
 public class PazaakGame extends Game {
 
 	private Player currentPlayer;
@@ -65,6 +62,8 @@ public class PazaakGame extends Game {
 	 */
 	public PazaakGame(String manual) {
 		super("Pazaak");
+
+		// Build table deck, four of each value
 		this.deck = new GroupOfCards();
 
 		for (TableValue val : TableValue.values()) {
@@ -72,7 +71,21 @@ public class PazaakGame extends Game {
 				deck.showCards().add(new TableCard(val));
 			}
 		}
-//		deck.shuffle();
+		deck.shuffle();
+
+		// Get side cards, one of each value
+		this.sideCards = new GroupOfCards();
+
+		for (SideValue val : SideValue.values()) {
+			sideCards.showCards().add(new SideCard(val));
+		}
+
+		// Set players with default names
+		this.getPlayers().add(new PazaakPlayer("Darth Maul"));
+		this.getPlayers().add(new PazaakPlayer("General Kenobi"));
+
+		// Set the first player to current player
+		this.currentPlayer = this.getPlayers().get(0);
 	}
 
 	public void play() {
@@ -104,11 +117,13 @@ public class PazaakGame extends Game {
 
 		if (tableHand.showCards().size() < 9) {
 			// Get the top card of the game's table deck
-			Card tableCard = deck.showCards().get(0);
+			TableCard tableCard = (TableCard)deck.showCards().get(0);
 
 			// Add the card to the player's hand
 			tableHand.showCards().add(tableCard);
 
+			// Increase the player's total by its value
+            player.setCardTotal(player.getCardTotal()+tableCard.getValue().value);
 
 			// Remove the card from the game's table deck
 			deck.showCards().remove(0);
@@ -124,9 +139,33 @@ public class PazaakGame extends Game {
 	 *
 	 * @param player
 	 */
-	public void assignSideDeck(Player player) {
-		// TODO - implement PazaakGame.assignSideDeck
-		throw new UnsupportedOperationException();
+	public void assignSideDeck(PazaakPlayer player) {
+		GroupOfCards sideHand = player.getHand();
+
+		// Assign random side cards, making better cards more rare
+		for (int i = 0; i < 4; i++) {
+			double p = Math.random();
+			Card card;
+			if (0 <= p && p < 0.3) {
+				card = sideCards.showCards().get(0);
+			} else if (0.3 <= p && p < 0.6) {
+				card = sideCards.showCards().get(1);
+			} else if (0.6 <= p && p < 0.7) {
+				card = sideCards.showCards().get(2);
+			} else if (0.7 <= p && p < 0.8) {
+				card = sideCards.showCards().get(3);
+			} else if (0.8 <= p && p < 0.85) {
+				card = sideCards.showCards().get(4);
+			} else if (0.85 <= p && p < 0.9) {
+				card = sideCards.showCards().get(5);
+			} else if (0.9 <= p && p < 0.95) {
+				card = sideCards.showCards().get(6);
+			} else {
+				card = sideCards.showCards().get(7);
+			}
+
+			sideHand.showCards().add(card);
+		}
 	}
 
 	public GroupOfCards getSideCards() {
@@ -164,9 +203,8 @@ public class PazaakGame extends Game {
 	 *
 	 * @param player
 	 */
-	public void checkTotal(Player player) {
-		// TODO - implement PazaakGame.checkTotal
-		throw new UnsupportedOperationException();
+	public void checkTotal(PazaakPlayer player) {
+		player.getCardTotal();
 	}
 
 }

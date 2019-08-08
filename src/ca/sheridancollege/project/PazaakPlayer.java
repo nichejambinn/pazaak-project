@@ -7,6 +7,8 @@ public class PazaakPlayer extends Player {
 	private int wins;
 	private int cardTotal;
 	private GroupOfCards tableHand;
+	private boolean standing;
+	private boolean turnOver;
 
 	public void play() {
 		// TODO - implement PazaakPlayer.play
@@ -37,21 +39,36 @@ public class PazaakPlayer extends Player {
 
 		// Create table hand
 		this.tableHand = new GroupOfCards();
-	}
 
-	public String getPlayerID() {
-		// TODO - implement PazaakPlayer.getPlayerID
-		throw new UnsupportedOperationException();
+		// Create side hand
+		this.hand = new GroupOfCards();
+
+		this.standing = false;
+		this.turnOver = false;
 	}
 
 	public void stand() {
-		// TODO - implement PazaakPlayer.stand
-		throw new UnsupportedOperationException();
+		setStanding(true);
+	}
+
+	public void setStanding(boolean standing) {
+		this.standing = standing;
+	}
+
+	public boolean getStanding() {
+		return this.standing;
 	}
 
 	public void endTurn() {
-		// TODO - implement PazaakPlayer.endTurn
-		throw new UnsupportedOperationException();
+		setTurnOver(true);
+	}
+
+	public void setTurnOver(boolean turnOver) {
+		this.turnOver = turnOver;
+	}
+
+	public boolean getTurnOver() {
+		return this.turnOver;
 	}
 
 	public void forfeit() {
