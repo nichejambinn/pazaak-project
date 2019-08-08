@@ -39,47 +39,24 @@ public class Start {
 
 		// Start the round
 		////////////////////////////////////////////
+        game.showBoard();
 
-		// Deal a table card to either player, can loop over players array instead
-		System.out.println("Dealing card to " + p1.getPlayerID());
-		game.dealCard(p1);
-		System.out.print(p1.getPlayerID() + "'s current total is: ");
-		System.out.println(p1.getCardTotal());
-		System.out.println();
-		System.out.println("Dealing card to " + p2.getPlayerID());
-		game.dealCard(p2);
-		System.out.print(p2.getPlayerID() + "'s current total is: ");
+        // while there is no round winner, do this:
+        while (!game.isRoundWon()) {
+            // Deal a table card to either player who isn't standing
+            game.play();
+            // Start current player's turn (set by constructor initially
+            game.startTurn();
+            // Change current player
+            game.changeTurn();
+            // Start their turn
+            game.startTurn();
 
-		game.showBoard();
+            // Has anyone won?
 
-		// Current player's turn, start turn method?
-		PazaakPlayer p = (PazaakPlayer)game.getCurrentPlayer();
-		while (!p.getTurnOver() && !p.getStanding()) {
-			System.out.print("Play card (1)/ End turn (2)/ Stand (3): ");
-			int choice = input.nextInt();
-
-			switch (choice) {
-				case (1):
-					System.out.print("Choose which side card to play (1/2/3/4): ");
-					int sideIndex = input.nextInt();
-
-					// Adjust card total by side card value
-					int currentTotal = p.getCardTotal();
-					SideCard card = (SideCard) p.getHand().showCards().get(sideIndex);
-					currentTotal += card.getValue().value;
-
-					// Remove side card from hand
-					p.getHand().showCards().remove(sideIndex);
-					break;
-				case (2):
-					p.endTurn();
-					break;
-				case (3):
-					p.stand();
-					break;
-			}
-		}
-
+            // Change current player
+            game.changeTurn();
+        }
 	}
 
 }

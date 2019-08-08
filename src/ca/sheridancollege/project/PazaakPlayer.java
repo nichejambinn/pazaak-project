@@ -55,7 +55,7 @@ public class PazaakPlayer extends Player {
 		this.standing = standing;
 	}
 
-	public boolean getStanding() {
+	public boolean isStanding() {
 		return this.standing;
 	}
 
@@ -67,7 +67,7 @@ public class PazaakPlayer extends Player {
 		this.turnOver = turnOver;
 	}
 
-	public boolean getTurnOver() {
+	public boolean isTurnOver() {
 		return this.turnOver;
 	}
 
@@ -80,9 +80,11 @@ public class PazaakPlayer extends Player {
 	 *
 	 * @param card
 	 */
-	public void playCard(Card card) {
-		// TODO - implement PazaakPlayer.playCard
-		throw new UnsupportedOperationException();
+	public void playCard(SideCard card) {
+        int currentTotal = this.getCardTotal() + card.getValue().value;
+        if (currentTotal < 0) currentTotal = 0;
+        this.setCardTotal(currentTotal);
+        this.getHand().showCards().remove(card);
 	}
 
 	public GroupOfCards getHand() {

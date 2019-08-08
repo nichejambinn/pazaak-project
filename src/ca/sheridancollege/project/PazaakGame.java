@@ -1,14 +1,18 @@
 package ca.sheridancollege.project;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class PazaakGame extends Game {
 
-	private Player currentPlayer;
+	private PazaakPlayer currentPlayer;
 	private int wager;
 	private String manual;
 	private GroupOfCards deck;
 	private GroupOfCards sideCards;
+	private boolean roundWon;
 
-	public Player getCurrentPlayer() {
+	public PazaakPlayer getCurrentPlayer() {
 		return this.currentPlayer;
 	}
 
@@ -16,7 +20,7 @@ public class PazaakGame extends Game {
 	 *
 	 * @param currentPlayer
 	 */
-	public void setCurrentPlayer(Player currentPlayer) {
+	public void setCurrentPlayer(PazaakPlayer currentPlayer) {
 		this.currentPlayer = currentPlayer;
 	}
 
@@ -85,12 +89,20 @@ public class PazaakGame extends Game {
 		this.getPlayers().add(new PazaakPlayer("General Kenobi"));
 
 		// Set the first player to current player
-		this.currentPlayer = this.getPlayers().get(0);
+		this.currentPlayer = (PazaakPlayer)this.getPlayers().get(0);
+
+		this.roundWon = false;
 	}
 
 	public void play() {
-		// TODO - implement PazaakGame.play
-		throw new UnsupportedOperationException();
+        for (int i = 0; i < this.getPlayers().size(); i++) {
+            PazaakPlayer player = (PazaakPlayer)this.getPlayers().get(i);
+
+            // If a player isn't standing, deal them a card
+            if (!player.isStanding()) {
+                this.dealCard(player);
+            }
+        }
 	}
 
 	public void declareWinner() {
@@ -127,13 +139,18 @@ public class PazaakGame extends Game {
 
 			// Remove the card from the game's table deck
 			deck.showCards().remove(0);
-		}
+		} else
+		    roundWinner();
 	}
 
 	public void roundWinner() {
-		// TODO - implement PazaakGame.roundWinner
-		throw new UnsupportedOperationException();
+        System.out.println("Round winner called");
+        this.roundWon = true;
 	}
+
+	public boolean isRoundWon() {
+	    return this.roundWon;
+    }
 
 	/**
 	 *
@@ -190,21 +207,54 @@ public class PazaakGame extends Game {
 	}
 
 	public void changeTurn() {
-		// TODO - implement PazaakGame.changeTurn
-		throw new UnsupportedOperationException();
+        PazaakPlayer currentPlayer = this.getCurrentPlayer();
+        if (currentPlayer.getCardTotal() > 20) {
+            roundWinner();
+        } else {
+            // Find next player
+            int pIndex = (currentPlayer == (PazaakPlayer)this.getPlayers().get(0)) ? 1 : 0;
+            System.out.println("Next player is " + pIndex);
+            PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
+
+            if (!nextPlayer.isStanding()) {
+                // If next player is not standing, switch to current player, start turn
+                this.setCurrentPlayer(nextPlayer);
+            } else if (currentPlayer.isStanding()) {
+                // If both players are standing, find the round winner
+                roundWinner();
+            }
+        }
 	}
 
 	public void startTurn() {
-		// TODO - implement PazaakGame.startTurn
-		throw new UnsupportedOperationException();
+	    Scanner input = new Scanner(System.in);
+        PazaakPlayer p = this.getCurrentPlayer();
+        while (!p.isTurnOver() && !p.isStanding()) {
+            this.showBoard();
+            System.out.println(p.getPlayerID() + "'s turn");
+            System.out.print("Play card (1)/ End turn (2)/ Stand (3): ");
+            int choice = input.nextInt();
+
+            switch (choice) {
+                case (1):
+                    System.out.print("Choose which side card to play (1/2/3/4): ");
+                    int sideIndex = input.nextInt() - 1;
+                    p.playCard((SideCard)p.getHand().showCards().get(sideIndex));
+                    break;
+                case (2):
+                    p.endTurn();
+                    break;
+                case (3):
+                    p.stand();
+                    break;
+            }
+        }
 	}
 
 	/**
 	 *
-	 * @param player
 	 */
-	public void checkTotal(PazaakPlayer player) {
-		player.getCardTotal();
+	public void checkTotal() {
 	}
 
     /**
@@ -216,17 +266,19 @@ public class PazaakGame extends Game {
         PazaakPlayer[] pArr = {p1, p2};
 
         for (int i = 0; i < pArr.length; i++) {
-            System.out.println(pArr[i].getPlayerID() + ", Total" + pArr[i].getCardTotal());
+            System.out.println(pArr[i].getPlayerID() + ", Total: " + pArr[i].getCardTotal());
             System.out.print("Side Cards: ");
             for (int j = 0; j < pArr[i].getHand().showCards().size(); j++) {
                 SideCard sCard = (SideCard)pArr[i].getHand().showCards().get(j);
-                System.out.print(sCard.getValue().value + " ");
+                String plus = (sCard.getValue().value > 0) ? "+" : "";
+                System.out.print(plus + sCard.getValue().value + " ");
             }
             System.out.print("  Table: ");
             for (int j = 0; j < pArr[i].getTableHand().showCards().size(); j++) {
                 TableCard tCard = (TableCard)pArr[i].getTableHand().showCards().get(j);
                 System.out.print(tCard.getValue().value + " ");
             }
+            System.out.println();
             System.out.println();
         }
     }
