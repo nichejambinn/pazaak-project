@@ -10,7 +10,7 @@ public class Start {
 		// Create game with Spider-Manual
 		PazaakGame game = new PazaakGame("How do I shot Pazaak?");
 
-		// ca.sheridancollege.project.Display the first four cards of the table deck
+		// Display the first four cards of the table deck
 		for (int i = 0; i < 4; i++) {
 			Card card = game.getDeck().showCards().get(i);
 			System.out.println(card);
@@ -27,12 +27,12 @@ public class Start {
 		game.assignSideDeck(p1);
 		game.assignSideDeck(p2);
 
-		// ca.sheridancollege.project.Display p2's side hand
-		System.out.println("Displaying " + p2.getPlayerID() + "'s hand");
+		// Display p2's side hand
+		/*System.out.println("Displaying " + p2.getPlayerID() + "'s hand");
 		for (int i = 0; i < p2.getHand().showCards().size(); i++) {
 			Card card = p2.getHand().showCards().get(i);
 			System.out.println(card);
-		}
+		}*/
 
 		// Settle on a wager
 		////////////////////////////////////////////
@@ -49,17 +49,13 @@ public class Start {
 		System.out.println("Dealing card to " + p2.getPlayerID());
 		game.dealCard(p2);
 		System.out.print(p2.getPlayerID() + "'s current total is: ");
-		System.out.println(p2.getCardTotal());
-		System.out.println();
-		System.out.println("Displaying cards on " + p1.getPlayerID() + "'s table");
-		for (Card card : p1.getTableHand().showCards()) {
-			System.out.println(card);
-		}
+
+		game.showBoard();
 
 		// Current player's turn, start turn method?
 		PazaakPlayer p = (PazaakPlayer)game.getCurrentPlayer();
 		while (!p.getTurnOver() && !p.getStanding()) {
-			System.out.print("(1) Play card / (2) End turn / (3) Stand: ");
+			System.out.print("Play card (1)/ End turn (2)/ Stand (3): ");
 			int choice = input.nextInt();
 
 			switch (choice) {

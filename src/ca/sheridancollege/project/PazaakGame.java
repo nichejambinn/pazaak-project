@@ -207,4 +207,28 @@ public class PazaakGame extends Game {
 		player.getCardTotal();
 	}
 
+    /**
+     * Displays the game board
+     */
+    public void showBoard() {
+        PazaakPlayer p1 = (PazaakPlayer)this.getPlayers().get(0);
+        PazaakPlayer p2 = (PazaakPlayer)this.getPlayers().get(1);
+        PazaakPlayer[] pArr = {p1, p2};
+
+        for (int i = 0; i < pArr.length; i++) {
+            System.out.println(pArr[i].getPlayerID() + ", Total" + pArr[i].getCardTotal());
+            System.out.print("Side Cards: ");
+            for (int j = 0; j < pArr[i].getHand().showCards().size(); j++) {
+                SideCard sCard = (SideCard)pArr[i].getHand().showCards().get(j);
+                System.out.print(sCard.getValue().value + " ");
+            }
+            System.out.print("  Table: ");
+            for (int j = 0; j < pArr[i].getTableHand().showCards().size(); j++) {
+                TableCard tCard = (TableCard)pArr[i].getTableHand().showCards().get(j);
+                System.out.print(tCard.getValue().value + " ");
+            }
+            System.out.println();
+        }
+    }
+
 }

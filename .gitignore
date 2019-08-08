@@ -99,3 +99,9 @@ modules.xml
 
 # End of https://www.gitignore.io/api/intellij+iml
 /.idea/
+/.idea/deployment.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/uiDesigner.xml
+/.idea/workspace.xml

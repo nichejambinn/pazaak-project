@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SYST17796_ProjectStarterCode.iml" filepath="$PROJECT_DIR$/SYST17796_ProjectStarterCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pazaak-project.iml" filepath="$PROJECT_DIR$/pazaak-project.iml" />
     </modules>
   </component>
 </project>
