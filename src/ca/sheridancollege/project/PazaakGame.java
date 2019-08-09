@@ -130,10 +130,10 @@ public class PazaakGame extends Game {
 	/**
 	 *
 	 * @param winner
+     * @return true if the players decide and are able to play again, false otherwise
 	 */
-	public void rematch(PazaakPlayer winner) {
-		// TODO - implement PazaakGame.rematch
-		throw new UnsupportedOperationException();
+	public boolean rematch(PazaakPlayer winner) {
+		return true;
 	}
 
 	/**
@@ -161,11 +161,35 @@ public class PazaakGame extends Game {
 		}
 	}
 
-	public void roundWinner() {
+    public void roundWinner() {
+        PazaakPlayer winner;
+        int pIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
+        PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
         // check all conditions for round winner
+        //if current player has forfeited then nextPLayer wins
+        if (this.currentPlayer.getCardTotal() == -1) {
+            winner = nextPlayer;
+        }
+        // if nextPlayer forfeits current player wins
+        if (nextPlayer.getCardTotal() == -1) {
+            winner = currentPlayer;
+        }
 
-		// set roundWon accordingly
-	}
+        /*
+        win conditions:
+        1-
+        2- if someone has gone over 20
+        3- someone has 9 cards and is under 20
+        4- both players standing, one has higher or equal
+        */
+
+        // set roundWon accordingly
+        this.roundWon = true;
+        // the winner gets their wins incremented
+        // start a new round by resetting player values
+        // ask winner if they want to play first
+
+    }
 
 	public boolean isRoundWon() {
 	    return this.roundWon;
@@ -258,6 +282,7 @@ public class PazaakGame extends Game {
                         int sideIndex = input.nextInt() - 1;
                         p.playCard((SideCard) p.getHand().showCards().get(sideIndex));
                         cardPlayed = true;
+                        break;
                     } else {
                         System.out.println("You have already played a side card this round");
                     }
