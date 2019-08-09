@@ -143,26 +143,59 @@ public class PazaakGame extends Game {
     }
 
     public void roundWinner() {
-        PazaakPlayer winner;
+        PazaakPlayer winner = null;
         int pIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
         PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
-        // check all conditions for round winner
+        // check all conditions for round winner only once
+        boolean alreadyWon = false;
         //if current player has forfeited then nextPLayer wins
-        if (this.currentPlayer.getCardTotal() == -1) {
+        if (this.currentPlayer.getCardTotal() <= -1 && alreadyWon == false) {
             winner = nextPlayer;
+            alreadyWon = true;
         }
         // if nextPlayer forfeits current player wins
-        if (nextPlayer.getCardTotal() == -1) {
+        if (nextPlayer.getCardTotal() <= -1 && alreadyWon == false) {
             winner = currentPlayer;
+            alreadyWon = true;
         }
-        
-        /*
-        win conditions:
-        1- 
-        2- if someone has gone over 20
-        3- someone has 9 cards and is under 20
-        4- both players standing, one has higher or equal
-        */
+        // if currentPlayer has 9 deck cards then current player wins
+        if (currentPlayer.getTableHand().showCards().size() >= 9 && alreadyWon == false) {
+            winner = currentPlayer;
+            alreadyWon = true;
+        }
+        // if next Player has 9 deck cards then next player wins
+        if (nextPlayer.getTableHand().showCards().size() >= 9 && alreadyWon == false) {
+            winner = nextPlayer;
+            alreadyWon = true;
+        }
+        // if current player has the same card total as next player the game is a draw
+        if (currentPlayer.getCardTotal() ==  nextPlayer.getCardTotal()  && alreadyWon == false) {
+            alreadyWon = true;
+        }
+        // if both players' card total is over 20 then the game is a draw
+        if (currentPlayer.getCardTotal() > 20 && nextPlayer.getCardTotal() > 20  && alreadyWon == false) {
+            alreadyWon = true;
+        }
+        //if current player is over 20 then nextPLayer wins
+        if (this.currentPlayer.getCardTotal() == -1 && alreadyWon == false) {
+            winner = nextPlayer;
+            alreadyWon = true;
+        }
+        // if nextPlayer is over 20 then current player wins
+        if (nextPlayer.getCardTotal() == -1 && alreadyWon == false) {
+            winner = currentPlayer;
+            alreadyWon = true;
+        }
+        // if current player has 20 or is closer to 20 than the next player
+        if (currentPlayer.getCardTotal() == 20 || currentPlayer.getCardTotal() > nextPlayer.getCardTotal()  && alreadyWon == false) {
+            winner = currentPlayer;
+            alreadyWon = true;
+        }
+        // if next player has 20 or is closer to 20 than the current player
+        if (nextPlayer.getCardTotal() == 20 || nextPlayer.getCardTotal() > currentPlayer.getCardTotal()  && alreadyWon == false) {
+            winner = currentPlayer;
+            alreadyWon = true;
+        }
 
         // set roundWon accordingly
         this.roundWon = true;
