@@ -95,14 +95,7 @@ public class PazaakGame extends Game {
 	}
 
 	public void play() {
-        for (int i = 0; i < this.getPlayers().size(); i++) {
-            PazaakPlayer player = (PazaakPlayer)this.getPlayers().get(i);
 
-            // If a player isn't standing, deal them a card
-            if (!player.isStanding()) {
-                this.dealCard(player);
-            }
-        }
 	}
 
 	public void declareWinner() {
@@ -121,24 +114,26 @@ public class PazaakGame extends Game {
 
 	/**
 	 *
-	 * @param player
 	 */
-	public void dealCard(PazaakPlayer player) {
-		// Get player's table hand
-		GroupOfCards tableHand = player.getTableHand();
+	public void dealCard() {
+		// If a player isn't standing, deal them a card
+		if (!this.currentPlayer.isStanding()) {
+			// Get player's table hand
+			GroupOfCards tableHand = this.currentPlayer.getTableHand();
 
-		if (tableHand.showCards().size() < 9) {
-			// Get the top card of the game's table deck
-			TableCard tableCard = (TableCard)deck.showCards().get(0);
+			if (tableHand.showCards().size() < 9) {
+				// Get the top card of the game's table deck
+				TableCard tableCard = (TableCard) deck.showCards().get(0);
 
-			// Add the card to the player's hand
-			tableHand.showCards().add(tableCard);
+				// Add the card to the player's hand
+				tableHand.showCards().add(tableCard);
 
-			// Increase the player's total by its value
-            player.setCardTotal(player.getCardTotal()+tableCard.getValue().value);
+				// Increase the player's total by its value
+				this.currentPlayer.setCardTotal(this.currentPlayer.getCardTotal() + tableCard.getValue().value);
 
-			// Remove the card from the game's table deck
-			deck.showCards().remove(0);
+				// Remove the card from the game's table deck
+				deck.showCards().remove(0);
+			}
 		}
 	}
 
@@ -208,7 +203,7 @@ public class PazaakGame extends Game {
 
 	public void changeTurn() {
 		System.out.println("changeTurn called");
-        PazaakPlayer currentPlayer = this.getCurrentPlayer();
+        PazaakPlayer currentPlayer = this.currentPlayer;
 
 		// Find next player
 		int pIndex = (currentPlayer == (PazaakPlayer)this.getPlayers().get(0)) ? 1 : 0;
@@ -217,7 +212,7 @@ public class PazaakGame extends Game {
 
 		if (!nextPlayer.isStanding()) {
 			// If next player is not standing, switch to current player
-			this.setCurrentPlayer(nextPlayer);
+			this.currentPlayer = nextPlayer;
 		}
 	}
 

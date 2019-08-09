@@ -38,10 +38,10 @@ public class Start {
 
         // while there is no round winner, do this:
         while (!game.isRoundWon()) {
-            // Deal a table card to either player who isn't standing
-            game.play();
-
             for (int i = 0; i < game.getPlayers().size(); i++) {
+				// Deal a table card to the player if they aren't standing
+				game.dealCard();
+
                 // Start current player's turn (set by constructor initially)
                 game.startTurn();
 
