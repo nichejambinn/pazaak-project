@@ -61,10 +61,9 @@ public class PazaakGame extends Game {
 	}
 
 	/**
-	 *
-	 * @param manual
+	 * Default constructor
 	 */
-	public PazaakGame(String manual) {
+	public PazaakGame() {
 		super("Pazaak");
 
 		// Build table deck, four of each value
@@ -76,6 +75,8 @@ public class PazaakGame extends Game {
 			}
 		}
 		deck.shuffle();
+
+		this.manual = "How do I shot Pazaak?";
 
 		// Get side cards, one of each value
 		this.sideCards = new GroupOfCards();
@@ -98,16 +99,39 @@ public class PazaakGame extends Game {
 
 	}
 
+    /**
+     * Declares the match winner between player1 and player2 based on who
+     * has 3 wins.
+     *
+     */
+    @Override
 	public void declareWinner() {
-		// TODO - implement PazaakGame.declareWinner
-		throw new UnsupportedOperationException();
+	    PazaakPlayer winner;
+	    PazaakPlayer loser;
+
+	    PazaakPlayer player1 = (PazaakPlayer)this.getPlayers().get(0);
+	    PazaakPlayer player2 = (PazaakPlayer)this.getPlayers().get(1);
+
+        if (player1.getWins() == 3) {
+            winner = player1;
+            loser = player2;
+        } else {
+            winner = player2;
+            loser = player1;
+        }
+
+        System.out.println(winner.getPlayerID() + " wins the match!");
+        winner.setCredits(winner.getCredits() + wager);
+        loser.setCredits(loser.getCredits() - wager);
+        System.out.println(wager + " credits have been removed from " + loser.getPlayerID()
+                + "'s account and added to " + winner.getPlayerID() + "'s");
 	}
 
 	/**
 	 *
-	 * @param rematch
+	 * @param winner
 	 */
-	public void rematch(boolean rematch) {
+	public void rematch(PazaakPlayer winner) {
 		// TODO - implement PazaakGame.rematch
 		throw new UnsupportedOperationException();
 	}
@@ -229,23 +253,31 @@ public class PazaakGame extends Game {
 
             switch (choice) {
                 case (1):
-                	if (!cardPlayed) {
-						System.out.print("Choose which side card to play (1/2/3/4): ");
-						int sideIndex = input.nextInt() - 1;
-						p.playCard((SideCard) p.getHand().showCards().get(sideIndex));
-						break;
-					} else {
-						System.out.println("You have already played a side card this round");
-					}
+                    if (!cardPlayed) {
+                        System.out.print("Choose which side card to play (1/2/3/4): ");
+                        int sideIndex = input.nextInt() - 1;
+                        p.playCard((SideCard) p.getHand().showCards().get(sideIndex));
+                        cardPlayed = true;
+                    } else {
+                        System.out.println("You have already played a side card this round");
+                    }
+                    break;
                 case (2):
                     p.endTurn();
                     break;
                 case (3):
-                    p.stand();
+                    if (p.getCardTotal() <= 20) {
+                        p.stand();
+                    } else {
+                        System.out.println("You cannot stand with a total greater than 20");
+                    }
                     break;
 				case (4):
 					p.forfeit();
 					break;
+                default:
+                    System.out.println("Invalid option");
+                    break;
             }
         }
 	}
@@ -254,6 +286,7 @@ public class PazaakGame extends Game {
 	 *
 	 */
 	public void checkTotal() {
+
 	}
 
     /**
