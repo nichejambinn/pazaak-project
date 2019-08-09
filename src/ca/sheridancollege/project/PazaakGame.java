@@ -11,6 +11,8 @@ public class PazaakGame extends Game {
     private GroupOfCards deck;
     private GroupOfCards sideCards;
     private boolean roundWon;
+    String playFirst;
+    private Scanner input = new Scanner(System.in);
 
     public PazaakPlayer getCurrentPlayer() {
         return this.currentPlayer;
@@ -70,11 +72,7 @@ public class PazaakGame extends Game {
         // Build table deck, four of each value
         this.deck = new GroupOfCards();
 
-        for (TableValue val : TableValue.values()) {
-            for (int i = 0; i < 4; i++) {
-                deck.showCards().add(new TableCard(val));
-            }
-        }
+        buildDeck();
         deck.shuffle();
 
         // Get side cards, one of each value
@@ -166,10 +164,34 @@ public class PazaakGame extends Game {
 
         // set roundWon accordingly
         this.roundWon = true;
+        
+        currentPlayer.setWins(currentPlayer.getWins()+1);
+        buildDeck();
+        
+        System.out.print("Do you want to play first? (Y/N)");
+        playFirst = input.next();
+        if ("Y".equalsIgnoreCase(playFirst)){
+            
+        } else if ("N".equalsIgnoreCase(playFirst)){
+            int psIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
+            PazaakPlayer nextPlayer1 = (PazaakPlayer) this.getPlayers().get(psIndex);
+            PazaakPlayer temp;
+            currentPlayer = nextPlayer;
+        } 
+        
         // the winner gets their wins incremented
         // start a new round by resetting player values
         // ask winner if they want to play first
         
+    }
+    
+    public void buildDeck(){
+        
+        for (TableValue val : TableValue.values()) {
+            for (int i = 0; i < 4; i++) {
+                deck.showCards().add(new TableCard(val));
+            }
+        }
     }
 
     public boolean isRoundWon() {
@@ -246,7 +268,6 @@ public class PazaakGame extends Game {
     }
 
     public void startTurn() {
-        Scanner input = new Scanner(System.in);
         PazaakPlayer p = this.getCurrentPlayer();
         p.setTurnOver(false);
         while (!p.isTurnOver() && !p.isStanding()) {
