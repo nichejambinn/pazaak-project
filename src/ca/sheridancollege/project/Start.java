@@ -23,39 +23,34 @@ public class Start {
 		// Prompt for custom player ID
 		//////////////////////////////////////////////////
 
-		// Assign their side hands
-		game.assignSideDeck(p1);
-		game.assignSideDeck(p2);
-
-		// Display p2's side hand
-		/*System.out.println("Displaying " + p2.getPlayerID() + "'s hand");
-		for (int i = 0; i < p2.getHand().showCards().size(); i++) {
-			Card card = p2.getHand().showCards().get(i);
-			System.out.println(card);
-		}*/
 
 		// Settle on a wager
 		////////////////////////////////////////////
 
+		// Start the match / rematch
+
+		// Assign their side hands
+		game.assignSideDeck(p1);
+		game.assignSideDeck(p2);
+
 		// Start the round
 		////////////////////////////////////////////
-        game.showBoard();
 
         // while there is no round winner, do this:
         while (!game.isRoundWon()) {
             // Deal a table card to either player who isn't standing
             game.play();
-            // Start current player's turn (set by constructor initially
-            game.startTurn();
-            // Change current player
-            game.changeTurn();
-            // Start their turn
-            game.startTurn();
 
-            // Has anyone won?
+            for (int i = 0; i < game.getPlayers().size(); i++) {
+                // Start current player's turn (set by constructor initially)
+                game.startTurn();
 
-            // Change current player
-            game.changeTurn();
+                // Has anyone won?
+				game.roundWinner();
+
+                // Change current player
+                game.changeTurn();
+            }
         }
 	}
 

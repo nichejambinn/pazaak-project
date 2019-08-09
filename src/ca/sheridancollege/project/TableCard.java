@@ -34,9 +34,9 @@ public class TableCard extends Card {
 		String top = " ____ \n";
 		String sideTop;
 		if (this.value.value == 10)
-			sideTop = "|" + this.value + "  |\n";
+			sideTop = "|" + this.value.value + "  |\n";
 		else
-			sideTop = "|" + this.value + "   |\n";
+			sideTop = "|" + this.value.value + "   |\n";
 		String sideMiddle = "|    |\n";
 		String bottom = "|____|\n";
 		return top+sideTop+sideMiddle+bottom;

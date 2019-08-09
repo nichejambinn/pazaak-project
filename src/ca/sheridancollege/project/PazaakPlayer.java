@@ -129,12 +129,11 @@ public class PazaakPlayer extends Player {
 	 * @param card
 	 */
 	public void playCard(SideCard card) {
-        int currentTotal = this.getCardTotal() + card.getValue().value;
+        int currentTotal = this.cardTotal + card.getValue().value;
         if (currentTotal < 0) currentTotal = 0;
-        this.setCardTotal(currentTotal);
-        this.getHand().showCards().remove(card);
+        this.cardTotal = currentTotal;
+        this.hand.showCards().remove(card);
         System.out.println(this.playerID + " has played the " + card.getValue().name() + " card");
-        
 	}
 
         /**

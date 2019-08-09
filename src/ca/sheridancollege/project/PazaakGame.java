@@ -139,13 +139,13 @@ public class PazaakGame extends Game {
 
 			// Remove the card from the game's table deck
 			deck.showCards().remove(0);
-		} else
-		    roundWinner();
+		}
 	}
 
 	public void roundWinner() {
-        System.out.println("Round winner called");
-        this.roundWon = true;
+        // check all conditions for round winner
+
+		// set roundWon accordingly
 	}
 
 	public boolean isRoundWon() {
@@ -207,46 +207,50 @@ public class PazaakGame extends Game {
 	}
 
 	public void changeTurn() {
+		System.out.println("changeTurn called");
         PazaakPlayer currentPlayer = this.getCurrentPlayer();
-        if (currentPlayer.getCardTotal() > 20) {
-            roundWinner();
-        } else {
-            // Find next player
-            int pIndex = (currentPlayer == (PazaakPlayer)this.getPlayers().get(0)) ? 1 : 0;
-            System.out.println("Next player is " + pIndex);
-            PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
 
-            if (!nextPlayer.isStanding()) {
-                // If next player is not standing, switch to current player, start turn
-                this.setCurrentPlayer(nextPlayer);
-            } else if (currentPlayer.isStanding()) {
-                // If both players are standing, find the round winner
-                roundWinner();
-            }
-        }
+		// Find next player
+		int pIndex = (currentPlayer == (PazaakPlayer)this.getPlayers().get(0)) ? 1 : 0;
+		PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
+		System.out.println("Next player is " + nextPlayer.getPlayerID());
+
+		if (!nextPlayer.isStanding()) {
+			// If next player is not standing, switch to current player
+			this.setCurrentPlayer(nextPlayer);
+		}
 	}
 
 	public void startTurn() {
 	    Scanner input = new Scanner(System.in);
         PazaakPlayer p = this.getCurrentPlayer();
+        p.setTurnOver(false);
         while (!p.isTurnOver() && !p.isStanding()) {
             this.showBoard();
             System.out.println(p.getPlayerID() + "'s turn");
-            System.out.print("Play card (1)/ End turn (2)/ Stand (3): ");
+            System.out.print("Play card (1)/ End turn (2)/ Stand (3)/ Forfeit (4): ");
             int choice = input.nextInt();
+            boolean cardPlayed = false;
 
             switch (choice) {
                 case (1):
-                    System.out.print("Choose which side card to play (1/2/3/4): ");
-                    int sideIndex = input.nextInt() - 1;
-                    p.playCard((SideCard)p.getHand().showCards().get(sideIndex));
-                    break;
+                	if (!cardPlayed) {
+						System.out.print("Choose which side card to play (1/2/3/4): ");
+						int sideIndex = input.nextInt() - 1;
+						p.playCard((SideCard) p.getHand().showCards().get(sideIndex));
+						break;
+					} else {
+						System.out.println("You have already played a side card this round");
+					}
                 case (2):
                     p.endTurn();
                     break;
                 case (3):
                     p.stand();
                     break;
+				case (4):
+					p.forfeit();
+					break;
             }
         }
 	}
