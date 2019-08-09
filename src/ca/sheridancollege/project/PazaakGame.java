@@ -143,9 +143,33 @@ public class PazaakGame extends Game {
     }
 
     public void roundWinner() {
+        PazaakPlayer winner;
+        int pIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
+        PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
         // check all conditions for round winner
+        //if current player has forfeited then nextPLayer wins
+        if (this.currentPlayer.getCardTotal() == -1) {
+            winner = nextPlayer;
+        }
+        // if nextPlayer forfeits current player wins
+        if (nextPlayer.getCardTotal() == -1) {
+            winner = currentPlayer;
+        }
+        
+        /*
+        win conditions:
+        1- 
+        2- if someone has gone over 20
+        3- someone has 9 cards and is under 20
+        4- both players standing, one has higher or equal
+        */
 
         // set roundWon accordingly
+        this.roundWon = true;
+        // the winner gets their wins incremented
+        // start a new round by resetting player values
+        // ask winner if they want to play first
+        
     }
 
     public boolean isRoundWon() {
