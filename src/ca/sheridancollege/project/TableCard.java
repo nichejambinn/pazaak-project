@@ -4,6 +4,11 @@ public class TableCard extends Card {
 
 	private TableValue value;
 
+        /**
+         * Return this card's value
+         * 
+         * @return 
+         */
 	public TableValue getValue() {
 		return this.value;
 	}
@@ -13,7 +18,7 @@ public class TableCard extends Card {
 	 * @param value
 	 */
 	public void setValue(TableValue value) {
-		this.value = value;
+		this.value  = value;
 	}
 
 	/**
@@ -24,13 +29,14 @@ public class TableCard extends Card {
 		this.value = value;
 	}
 
+        @Override
 	public String toString() {
 		String top = " ____ \n";
 		String sideTop;
 		if (this.value.value == 10)
-			sideTop = "|" + this.value.value + "  |\n";
+			sideTop = "|" + this.value + "  |\n";
 		else
-			sideTop = "|" + this.value.value + "   |\n";
+			sideTop = "|" + this.value + "   |\n";
 		String sideMiddle = "|    |\n";
 		String bottom = "|____|\n";
 		return top+sideTop+sideMiddle+bottom;

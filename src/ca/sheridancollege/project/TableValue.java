@@ -6,4 +6,8 @@ public enum TableValue {
     public final int value;
 
     private TableValue(int value) { this.value = value; }
+    
+    public int getValue() {
+        return value;
+    }
 }
