@@ -143,6 +143,7 @@ public class PazaakGame extends Game {
     }
 
     /**
+     *
      * @param winner
      * @return true if the players decide and are able to play again, false otherwise
      */
@@ -268,6 +269,7 @@ public class PazaakGame extends Game {
         if (alreadyWon) {
             // set roundWon accordingly
             this.roundWon = true;
+            // increment the winner's wins
             winner.setWins(winner.getWins() + 1);
             this.currentPlayer = winner;
         }
