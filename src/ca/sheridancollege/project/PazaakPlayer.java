@@ -119,7 +119,6 @@ public class PazaakPlayer extends Player {
      */
 	public void forfeit() {
             this.cardTotal = -1;
-            this.stand();
             System.out.println(this.playerID + " has chosen to forfeit");
 	}
 

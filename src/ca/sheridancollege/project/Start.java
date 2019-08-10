@@ -29,11 +29,10 @@ public class Start {
 			game.assignSideDeck(p1);
 			game.assignSideDeck(p2);
 
-			// Rebuild the table deck
-			////////////////////////////////////////////
-
 			// Start the round
 			while (p1.getWins() < 3 && p2.getWins() < 3) {
+
+				game.play();
 				// while there is no round winner, do this:
 				while (!game.isRoundWon()) {
 					// Deal a table card to the player if they aren't standing

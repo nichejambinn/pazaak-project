@@ -19,6 +19,7 @@ public class PazaakGame extends Game {
     }
 
     /**
+     *
      * @param currentPlayer
      */
     public void setCurrentPlayer(PazaakPlayer currentPlayer) {
@@ -30,6 +31,7 @@ public class PazaakGame extends Game {
     }
 
     /**
+     *
      * @param wager
      */
     public void setWager(int wager) {
@@ -41,6 +43,7 @@ public class PazaakGame extends Game {
     }
 
     /**
+     *
      * @param manual
      */
     public void setManual(String manual) {
@@ -52,6 +55,7 @@ public class PazaakGame extends Game {
     }
 
     /**
+     *
      * @param deck
      */
     public void setDeck(GroupOfCards deck) {
@@ -66,9 +70,6 @@ public class PazaakGame extends Game {
 
         // Build table deck, four of each value
         this.deck = new GroupOfCards();
-
-        buildDeck();
-        deck.shuffle();
 
         this.manual = "How do I shot Pazaak?";
 
@@ -91,7 +92,22 @@ public class PazaakGame extends Game {
 
     @Override
     public void play() {
-        // Do what here?
+        System.out.println("Starting a new round");
+        buildDeck();
+
+        PazaakPlayer player1 = (PazaakPlayer)this.getPlayers().get(0);
+        PazaakPlayer player2 = (PazaakPlayer)this.getPlayers().get(1);
+
+        // Clearing table cards
+        player1.getTableHand().showCards().clear();
+        player2.getTableHand().showCards().clear();
+
+        // Clearing scores
+        player1.setCardTotal(0);
+        player2.setCardTotal(0);
+
+        player1.setStanding(false);
+        player2.setStanding(false);
     }
 
     public void setRoundWon(boolean roundWon) {
@@ -99,8 +115,9 @@ public class PazaakGame extends Game {
     }
 
     /**
-     * Declares the match winner between player1 and player2 based on who
-     * has 3 wins.
+     * Declares the match winner between player1 and player2 based on who has 3
+     * wins.
+     *
      */
     @Override
     public void declareWinner() {
@@ -185,28 +202,39 @@ public class PazaakGame extends Game {
         PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
         // check all conditions for round winner only once
         boolean alreadyWon = false;
-        if (this.currentPlayer.isStanding() && nextPlayer.isStanding()) {
 
-            //if current player has forfeited then nextPLayer wins
-            if (this.currentPlayer.getCardTotal() <= -1) {
-                winner = nextPlayer;
-                alreadyWon = true;
-            }
-            // if nextPlayer forfeits current player wins
-            if (nextPlayer.getCardTotal() <= -1 && !alreadyWon) {
-                winner = this.currentPlayer;
-                alreadyWon = true;
-            }
-            // if currentPlayer has 9 deck cards then current player wins
-            if (this.currentPlayer.getTableHand().showCards().size() >= 9 && !alreadyWon) {
-                winner = this.currentPlayer;
-                alreadyWon = true;
-            }
-            // if next Player has 9 deck cards then next player wins
-            if (nextPlayer.getTableHand().showCards().size() >= 9 && !alreadyWon) {
-                winner = nextPlayer;
-                alreadyWon = true;
-            }
+        //if current player has forfeited then nextPLayer wins
+        if (this.currentPlayer.getCardTotal() <= -1) {
+            winner = nextPlayer;
+            alreadyWon = true;
+        }
+        // if nextPlayer forfeits current player wins
+        if (nextPlayer.getCardTotal() <= -1 && !alreadyWon) {
+            winner = this.currentPlayer;
+            alreadyWon = true;
+        }
+        // if currentPlayer has 9 deck cards then current player wins
+        if (this.currentPlayer.getTableHand().showCards().size() >= 9 && !alreadyWon) {
+            winner = this.currentPlayer;
+            alreadyWon = true;
+        }
+        // if next Player has 9 deck cards then next player wins
+        if (nextPlayer.getTableHand().showCards().size() >= 9 && !alreadyWon) {
+            winner = nextPlayer;
+            alreadyWon = true;
+        }
+        // if current player's card total is over 20 then next player wins
+        if (currentPlayer.getCardTotal() > 20 && nextPlayer.getCardTotal() < 20 && !alreadyWon) {
+            alreadyWon = true;
+            winner = nextPlayer;
+        }
+        // if next player's card total is over 20 then current player wins
+        if (nextPlayer.getCardTotal() > 20 && currentPlayer.getCardTotal() < 20 && !alreadyWon) {
+            alreadyWon = true;
+            winner = currentPlayer;
+        }
+
+        if (this.currentPlayer.isStanding() && nextPlayer.isStanding()) {
             // if current player has the same card total as next player the game is a draw
             if (this.currentPlayer.getCardTotal() == nextPlayer.getCardTotal() && !alreadyWon) {
                 alreadyWon = true;
@@ -236,23 +264,12 @@ public class PazaakGame extends Game {
                 alreadyWon = true;
             }
         }
-        // if current player's card total is over 20 then next player wins
-        if (currentPlayer.getCardTotal() > 20 && nextPlayer.getCardTotal() < 20 && !alreadyWon) {
-            alreadyWon = true;
-            winner = nextPlayer;
-        }
-        // if next player's card total is over 20 then current player wins
-        if (nextPlayer.getCardTotal() > 20 && currentPlayer.getCardTotal() < 20 && !alreadyWon) {
-            alreadyWon = true;
-            winner = currentPlayer;
-        }
 
         if (alreadyWon) {
             // set roundWon accordingly
             this.roundWon = true;
             winner.setWins(winner.getWins() + 1);
             this.currentPlayer = winner;
-            buildDeck();
         }
     }
 
@@ -263,6 +280,8 @@ public class PazaakGame extends Game {
                 deck.showCards().add(new TableCard(val));
             }
         }
+
+        deck.shuffle();
     }
 
     public boolean isRoundWon() {
@@ -270,10 +289,12 @@ public class PazaakGame extends Game {
     }
 
     /**
+     *
      * @param player
      */
     public void assignSideDeck(PazaakPlayer player) {
         GroupOfCards sideHand = player.getHand();
+        sideHand.showCards().clear();
 
         // Assign random side cards, making better cards more rare
         for (int i = 0; i < 4; i++) {
@@ -306,6 +327,7 @@ public class PazaakGame extends Game {
     }
 
     /**
+     *
      * @param sideCards
      */
     public void setSideCards(GroupOfCards sideCards) {
@@ -313,6 +335,7 @@ public class PazaakGame extends Game {
     }
 
     /**
+     *
      * @param wager
      */
     public void takeWager(int wager) {
@@ -392,7 +415,7 @@ public class PazaakGame extends Game {
         PazaakPlayer[] pArr = {p1, p2};
 
         for (int i = 0; i < pArr.length; i++) {
-            System.out.println(pArr[i].getPlayerID() + ", Total: " + pArr[i].getCardTotal());
+            System.out.println(pArr[i].getPlayerID() + ", Wins: " + pArr[i].getWins() + ", Total: " + pArr[i].getCardTotal());
             System.out.print("Side Cards: ");
             for (int j = 0; j < pArr[i].getHand().showCards().size(); j++) {
                 SideCard sCard = (SideCard) pArr[i].getHand().showCards().get(j);
