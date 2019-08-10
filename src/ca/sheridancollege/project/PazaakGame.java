@@ -97,8 +97,8 @@ public class PazaakGame extends Game {
         System.out.println("\nStarting a new round\n");
         buildDeck();
 
-        PazaakPlayer player1 = (PazaakPlayer)this.getPlayers().get(0);
-        PazaakPlayer player2 = (PazaakPlayer)this.getPlayers().get(1);
+        PazaakPlayer player1 = (PazaakPlayer) this.getPlayers().get(0);
+        PazaakPlayer player2 = (PazaakPlayer) this.getPlayers().get(1);
 
         // Clearing table cards
         player1.getTableHand().showCards().clear();
@@ -147,7 +147,8 @@ public class PazaakGame extends Game {
     /**
      *
      * @param winner
-     * @return true if the players decide and are able to play again, false otherwise
+     * @return true if the players decide and are able to play again, false
+     * otherwise
      */
     public boolean rematch(PazaakPlayer winner) {
         this.currentPlayer = winner;
@@ -351,9 +352,61 @@ public class PazaakGame extends Game {
      *
      * @param wager
      */
-    public void takeWager(int wager) {
+    public void takeWager() {
         // TODO - implement PazaakGame.takeWager
-        throw new UnsupportedOperationException();
+        int p1wager = 0;
+        int p2wager = 0;
+        String answer;
+        char c;
+        boolean takeWagerOnce = true;
+        boolean takeWager = true;
+        do {
+            while(takeWagerOnce){
+                System.out.print("Enter wager amount: ");
+                p1wager = input.nextInt();
+                System.out.println("The wager entered is " + p1wager);
+                System.out.print("Do you accept player1 wager: " + p1wager + "? (Y/N)");
+                answer = input.next();
+                c = answer.charAt(0);
+                if ("Y".equals(answer)) {
+                    p2wager = p1wager;
+                    takeWager = false;
+                    takeWagerOnce = false;
+                    break;
+                } else if ("N".equals(answer)){
+                    System.out.print("Enter wager amount: ");
+                    p2wager = input.nextInt();
+                    takeWagerOnce = false;
+                }
+            }
+            
+            if (p1wager != 0 && p1wager != p2wager) {
+                System.out.print("Do you accept player2 wager " + p2wager + "? (Y/N): ");
+                answer = input.next();
+                if ("Y".equals(answer)) {
+                    p1wager = p2wager;
+                    takeWager = false;
+                    break;
+                } else if ("N".equals(answer)){
+                    System.out.print("Enter wager amount: ");
+                    p1wager = input.nextInt();
+                }
+            }
+            if (p1wager != 0 && p1wager != p2wager) {
+                System.out.print("Do you accept player1 wager " + p1wager + "? (Y/N): ");
+                answer = input.next();
+                c = answer.charAt(0);
+                if ("Y".equals(c)) {
+                    p2wager = p1wager;
+                    takeWager = false;
+                    break;
+                } else {
+                    System.out.print("Enter wager amount: ");
+                    p2wager = input.nextInt();
+                }
+            }
+        } while (takeWager);
+        this.wager = p1wager;
     }
 
     public void changeTurn() {
