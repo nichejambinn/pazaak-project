@@ -131,7 +131,20 @@ public class PazaakGame extends Game {
      * @return true if the players decide and are able to play again, false otherwise
 	 */
 	public boolean rematch(PazaakPlayer winner) {
-		return true;
+		this.currentPlayer = winner;
+        boolean playAgain = true;
+
+        int pIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
+        PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
+
+        if (nextPlayer.getCredits() == 0) {
+            playAgain = false;
+        } else {
+            currentPlayer.setWins(0);
+            nextPlayer.setWins(0);
+        }
+        
+        return playAgain;
 	}
 
 	/**
