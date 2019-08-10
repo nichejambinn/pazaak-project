@@ -41,11 +41,11 @@ public class Start {
 					// Start current player's turn (set by constructor initially)
 					game.startTurn();
 
-					// Has anyone won?
-					game.roundWinner();
-
 					// Change current player
 					game.changeTurn();
+
+					// Has anyone won?
+					game.roundWinner();
 				}
 				game.setRoundWon(false);
 			}

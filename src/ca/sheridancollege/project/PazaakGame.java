@@ -201,6 +201,7 @@ public class PazaakGame extends Game {
         PazaakPlayer winner = null;
         int pIndex = (this.currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
         PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
+
         // check all conditions for round winner only once
         boolean alreadyWon = false;
 
@@ -269,9 +270,14 @@ public class PazaakGame extends Game {
         if (alreadyWon) {
             // set roundWon accordingly
             this.roundWon = true;
-            // increment the winner's wins
-            winner.setWins(winner.getWins() + 1);
-            this.currentPlayer = winner;
+            if (winner != null) {
+                // increment the winner's wins
+                winner.setWins(winner.getWins() + 1);
+                System.out.println(winner.getPlayerID() + " won the round\n");
+                this.currentPlayer = winner;
+            } else {
+                System.out.println("Round was a draw\n");
+            }
         }
     }
 
@@ -346,7 +352,6 @@ public class PazaakGame extends Game {
     }
 
     public void changeTurn() {
-        System.out.println("changeTurn called");
         PazaakPlayer currentPlayer = this.currentPlayer;
 
         // Find next player
