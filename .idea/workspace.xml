@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e541034-feda-483b-b794-7bd5b09c6d5d" name="Default Changelist" comment="">
+    <list default="true" id="8e541034-feda-483b-b794-7bd5b09c6d5d" name="Default Changelist" comment="set wager to zero in the constructor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1836">
-              <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
+            <state relative-caret-position="120">
+              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
               <folding>
                 <element signature="e#777#778#0" expanded="true" />
                 <element signature="e#803#804#0" expanded="true" />
@@ -56,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="282" column="38" selection-start-line="282" selection-start-column="38" selection-end-line="282" selection-end-column="38" />
+            <state relative-caret-position="69">
+              <caret line="195" column="29" selection-start-line="195" selection-start-column="29" selection-end-line="195" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#437#438#0" expanded="true" />
@@ -76,14 +76,11 @@
                 <element signature="e#1081#1082#0" expanded="true" />
                 <element signature="e#1169#1170#0" expanded="true" />
                 <element signature="e#1201#1202#0" expanded="true" />
-                <element signature="e#2591#2592#0" expanded="true" />
-                <element signature="e#2631#2632#0" expanded="true" />
-                <element signature="e#9778#9779#0" expanded="true" />
-                <element signature="e#9814#9815#0" expanded="true" />
-                <element signature="e#11046#11047#0" expanded="true" />
-                <element signature="e#11083#11084#0" expanded="true" />
-                <element signature="e#11186#11187#0" expanded="true" />
-                <element signature="e#11228#11229#0" expanded="true" />
+                <element signature="e#2695#2696#0" expanded="true" />
+                <element signature="e#2735#2736#0" expanded="true" />
+                <element signature="e#11441#11442#0" expanded="true" />
+                <element signature="e#12710#12711#0" expanded="true" />
+                <element signature="e#12855#12856#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -92,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+            <state relative-caret-position="782">
+              <caret line="64" column="9" lean-forward="true" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -118,7 +115,16 @@
       <find>alreadyWon == false</find>
       <find>play</find>
       <find>roundWinn</find>
+      <find>wager</find>
+      <find>roundWinner(</find>
+      <find>ager(</find>
+      <find>remat</find>
+      <find>rematch(</find>
+      <find>invalid input</find>
       <find>play(</find>
+      <find>Turn(</find>
+      <find>dealCard(</find>
+      <find>SideDeck(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -135,8 +141,8 @@
         <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/Display.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/TableCard.java" />
-        <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java" />
         <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakPlayer.java" />
+        <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java" />
         <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java" />
       </list>
     </option>
@@ -288,7 +294,7 @@
       <workItem from="1559758448760" duration="1504000" />
       <workItem from="1565126578395" duration="1248000" />
       <workItem from="1565279883447" duration="47000" />
-      <workItem from="1565280259416" duration="45166000" />
+      <workItem from="1565280259416" duration="49981000" />
     </task>
     <task id="LOCAL-00001" summary="implemented dealCard, a lot of constructor changes in our classes">
       <created>1565291534007</created>
@@ -395,11 +401,25 @@
       <option name="project" value="LOCAL" />
       <updated>1565400575706</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fixed draw, cleaned up console output for readability">
+      <created>1565403525958</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1565403525958</updated>
+    </task>
+    <task id="LOCAL-00017" summary="set wager to zero in the constructor">
+      <created>1565404331198</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1565404331198</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48381000" />
+    <option name="totallyTimeSpent" value="53196000" />
   </component>
   <component name="TodoView" selected-index="5">
     <todo-panel id="selected-file">
@@ -412,6 +432,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14412956" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -423,7 +444,7 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3285968" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.20781527" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49959514" visible="true" weight="0.73357016" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49959514" visible="true" weight="0.39964476" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -464,7 +485,9 @@
     <MESSAGE value="second commit before attempting to pull" />
     <MESSAGE value="play method implemented, round changes fixed(!?)" />
     <MESSAGE value="fixed forfeit, made draw possible" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed forfeit, made draw possible" />
+    <MESSAGE value="fixed draw, cleaned up console output for readability" />
+    <MESSAGE value="set wager to zero in the constructor" />
+    <option name="LAST_COMMIT_MESSAGE" value="set wager to zero in the constructor" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pazaak-project.vpdm/Class Diagram1.vpd">
@@ -563,17 +586,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1836">
-          <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
+        <state relative-caret-position="120">
+          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
           <folding>
             <element signature="e#777#778#0" expanded="true" />
             <element signature="e#803#804#0" expanded="true" />
@@ -597,10 +613,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="64" column="9" lean-forward="true" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="282" column="38" selection-start-line="282" selection-start-column="38" selection-end-line="282" selection-end-column="38" />
+        <state relative-caret-position="69">
+          <caret line="195" column="29" selection-start-line="195" selection-start-column="29" selection-end-line="195" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#437#438#0" expanded="true" />
@@ -619,14 +642,11 @@
             <element signature="e#1081#1082#0" expanded="true" />
             <element signature="e#1169#1170#0" expanded="true" />
             <element signature="e#1201#1202#0" expanded="true" />
-            <element signature="e#2591#2592#0" expanded="true" />
-            <element signature="e#2631#2632#0" expanded="true" />
-            <element signature="e#9778#9779#0" expanded="true" />
-            <element signature="e#9814#9815#0" expanded="true" />
-            <element signature="e#11046#11047#0" expanded="true" />
-            <element signature="e#11083#11084#0" expanded="true" />
-            <element signature="e#11186#11187#0" expanded="true" />
-            <element signature="e#11228#11229#0" expanded="true" />
+            <element signature="e#2695#2696#0" expanded="true" />
+            <element signature="e#2735#2736#0" expanded="true" />
+            <element signature="e#11441#11442#0" expanded="true" />
+            <element signature="e#12710#12711#0" expanded="true" />
+            <element signature="e#12855#12856#0" expanded="true" />
           </folding>
         </state>
       </provider>
