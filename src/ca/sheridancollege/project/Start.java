@@ -23,6 +23,7 @@ public class Start {
 		// Start the match / rematch
 		while (playing) {
 			// Settle on a wager
+                        game.takeWager();
 			////////////////////////////////////////////
 
 			// Assign their side hands
