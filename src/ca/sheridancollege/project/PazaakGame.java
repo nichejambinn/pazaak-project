@@ -73,6 +73,7 @@ public class PazaakGame extends Game {
         this.deck = new GroupOfCards();
 
         this.manual = "How do I shot Pazaak?";
+        this.wager = 0;
 
         // Get side cards, one of each value
         this.sideCards = new GroupOfCards();
@@ -150,25 +151,60 @@ public class PazaakGame extends Game {
      * otherwise
      */
     public boolean rematch(PazaakPlayer winner) {
-        this.currentPlayer = winner;
-        boolean playAgain = true;
+        int winnerRematch = 0;
+        int loserRematch = 0;
 
-        int pIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
-        PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
+        boolean playAgain = false;
 
-        if (nextPlayer.getCredits() == 0) {
-            playAgain = false;
-        } else {
-            currentPlayer.setWins(0);
-            nextPlayer.setWins(0);
+        int pIndex = (winner == (PazaakPlayer)this.getPlayers().get(0)) ? 1 : 0;
+        PazaakPlayer loser = (PazaakPlayer) this.getPlayers().get(pIndex);
+
+        while (loserRematch == 0 && loser.getCredits() > 0) {
+            System.out.print(loser.getPlayerID() + ", would you care for a rematch (Y/N)? ");
+            String choice = input.next();
+            if (choice.equalsIgnoreCase("Y")) {
+                loserRematch = 1;
+            } else if (!choice.equalsIgnoreCase("N")) {
+                System.out.println("Invalid input");
+            } else {
+                loserRematch = -1;
+            }
         }
 
-        System.out.print("Do you want to play first? (Y/N)");
-        playFirst = input.next();
-        if ("Y".equalsIgnoreCase(playFirst)) {
-            this.currentPlayer = winner;
-        } else if ("N".equalsIgnoreCase(playFirst)) {
-            this.currentPlayer = nextPlayer;
+        if (loserRematch == 1) {
+            while (winnerRematch == 0 && winner.getCredits() > 0) {
+                System.out.print(winner.getPlayerID() + ", would you care for a rematch (Y/N)? ");
+                String choice = input.next();
+                if (choice.equalsIgnoreCase("Y")) {
+                    winnerRematch = 1;
+                } else if (!choice.equalsIgnoreCase("N")) {
+                    System.out.println("Invalid input");
+                } else {
+                    winnerRematch = -1;
+                }
+            }
+        }
+
+        if (winnerRematch + loserRematch == 2) {
+            playAgain = true;
+            winner.setWins(0);
+            loser.setWins(0);
+
+            int deciding = 0;
+
+            while (deciding == 0) {
+                System.out.print(winner.getPlayerID() + ", will you play first? (Y/N) ");
+                String playFirst = input.next();
+                if (playFirst.equalsIgnoreCase("Y")) {
+                    this.currentPlayer = winner;
+                    deciding = 1;
+                } else if (!playFirst.equalsIgnoreCase("N")) {
+                    System.out.println("Invalid input");
+                } else {
+                    this.currentPlayer = loser;
+                    deciding = -1;
+                }
+            }
         }
 
         return playAgain;
@@ -349,10 +385,8 @@ public class PazaakGame extends Game {
 
     /**
      *
-     * @param wager
      */
     public void takeWager() {
-        // TODO - implement PazaakGame.takeWager
         int p1wager = 0;
         int p2wager = 0;
         String answer;
@@ -450,7 +484,7 @@ public class PazaakGame extends Game {
     }
 
     public void startTurn() {
-        PazaakPlayer p = this.getCurrentPlayer();
+        PazaakPlayer p = this.currentPlayer;
         p.setTurnOver(false);
         boolean cardPlayed = false;
         while (!p.isTurnOver() && !p.isStanding()) {

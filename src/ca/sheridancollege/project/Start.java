@@ -21,10 +21,10 @@ public class Start {
 
 		boolean playing = true;
 		// Start the match / rematch
+		System.out.println("Starting a new match\n");
 		while (playing) {
 			// Settle on a wager
-                        game.takeWager();
-			////////////////////////////////////////////
+			game.takeWager();
 
 			// Assign their side hands
 			game.assignSideDeck(p1);
@@ -63,5 +63,6 @@ public class Start {
 
 			playing = game.rematch(winner);
 		}
+		System.out.println("\n\nThanks for playing " + p1.getPlayerID() + " and " + p2.getPlayerID() + "!");
 	}
 }
