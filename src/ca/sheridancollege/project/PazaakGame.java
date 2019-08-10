@@ -131,17 +131,28 @@ public class PazaakGame extends Game {
      * @return true if the players decide and are able to play again, false otherwise
 	 */
 	public boolean rematch(PazaakPlayer winner) {
+		this.currentPlayer = winner;
+        boolean playAgain = true;
+
+        int pIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
+        PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
+
+        if (nextPlayer.getCredits() == 0) {
+            playAgain = false;
+        } else {
+            currentPlayer.setWins(0);
+            nextPlayer.setWins(0);
+        }
+
         System.out.print("Do you want to play first? (Y/N)");
         playFirst = input.next();
         if ("Y".equalsIgnoreCase(playFirst)){
-            ;
+            this.currentPlayer = winner;
         } else if ("N".equalsIgnoreCase(playFirst)){
-            int psIndex = (this.currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
-            PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(psIndex);
-            PazaakPlayer temp;
             this.currentPlayer = nextPlayer;
         }
-        return true;
+
+        return playAgain;
 	}
 
 	/**
@@ -210,17 +221,17 @@ public class PazaakGame extends Game {
         }
         // if nextPlayer is over 20 then current player wins
         if (nextPlayer.getCardTotal() == -1 && !alreadyWon) {
-            winner = currentPlayer;
+            winner = this.currentPlayer;
             alreadyWon = true;
         }
         // if current player has 20 or is closer to 20 than the next player
-        if (currentPlayer.getCardTotal() == 20 || currentPlayer.getCardTotal() > nextPlayer.getCardTotal()  && !alreadyWon) {
-            winner = currentPlayer;
+        if (this.currentPlayer.getCardTotal() == 20 || currentPlayer.getCardTotal() > nextPlayer.getCardTotal()  && !alreadyWon) {
+            winner = this.currentPlayer;
             alreadyWon = true;
         }
         // if next player has 20 or is closer to 20 than the current player
         if (nextPlayer.getCardTotal() == 20 || nextPlayer.getCardTotal() > currentPlayer.getCardTotal()  && !alreadyWon) {
-            winner = currentPlayer;
+            winner = this.currentPlayer;
             alreadyWon = true;
         }
 
