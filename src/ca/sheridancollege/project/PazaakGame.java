@@ -97,6 +97,10 @@ public class PazaakGame extends Game {
 
 	}
 
+	public void setRoundWon(boolean roundWon) {
+	    this.roundWon = roundWon;
+    }
+
     /**
      * Declares the match winner between player1 and player2 based on who
      * has 3 wins.

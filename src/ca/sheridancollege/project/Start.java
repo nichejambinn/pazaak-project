@@ -36,20 +36,19 @@ public class Start {
 			while (p1.getWins() < 3 && p2.getWins() < 3) {
 				// while there is no round winner, do this:
 				while (!game.isRoundWon()) {
-					for (int i = 0; i < game.getPlayers().size(); i++) {
-						// Deal a table card to the player if they aren't standing
-						game.dealCard();
+					// Deal a table card to the player if they aren't standing
+					game.dealCard();
 
-						// Start current player's turn (set by constructor initially)
-						game.startTurn();
+					// Start current player's turn (set by constructor initially)
+					game.startTurn();
 
-						// Has anyone won?
-						game.roundWinner();
+					// Has anyone won?
+					game.roundWinner();
 
-						// Change current player
-						game.changeTurn();
-					}
+					// Change current player
+					game.changeTurn();
 				}
+				game.setRoundWon(false);
 			}
 
 			game.declareWinner();
