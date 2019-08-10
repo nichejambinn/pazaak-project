@@ -67,6 +67,7 @@ public class PazaakGame extends Game {
      */
     public PazaakGame() {
         super("Pazaak");
+        System.out.println("\nWelcome to " + this.getGameName() + "!\n");
 
         // Build table deck, four of each value
         this.deck = new GroupOfCards();
@@ -92,7 +93,7 @@ public class PazaakGame extends Game {
 
     @Override
     public void play() {
-        System.out.println("Starting a new round");
+        System.out.println("\nStarting a new round\n");
         buildDeck();
 
         PazaakPlayer player1 = (PazaakPlayer)this.getPlayers().get(0);
@@ -207,31 +208,37 @@ public class PazaakGame extends Game {
 
         //if current player has forfeited then nextPLayer wins
         if (this.currentPlayer.getCardTotal() <= -1) {
+            System.out.println(this.currentPlayer.getPlayerID() + " has forfeited");
             winner = nextPlayer;
             alreadyWon = true;
         }
         // if nextPlayer forfeits current player wins
         if (nextPlayer.getCardTotal() <= -1 && !alreadyWon) {
+            System.out.println(nextPlayer.getPlayerID() + " has forfeited");
             winner = this.currentPlayer;
             alreadyWon = true;
         }
         // if currentPlayer has 9 deck cards then current player wins
         if (this.currentPlayer.getTableHand().showCards().size() >= 9 && !alreadyWon) {
+            System.out.println(this.currentPlayer.getPlayerID() + " filled the table");
             winner = this.currentPlayer;
             alreadyWon = true;
         }
         // if next Player has 9 deck cards then next player wins
         if (nextPlayer.getTableHand().showCards().size() >= 9 && !alreadyWon) {
+            System.out.println(nextPlayer.getPlayerID() + " filled the table");
             winner = nextPlayer;
             alreadyWon = true;
         }
         // if current player's card total is over 20 then next player wins
         if (currentPlayer.getCardTotal() > 20 && nextPlayer.getCardTotal() <= 20 && !alreadyWon) {
+            System.out.println(this.currentPlayer.getPlayerID() + " went over 20");
             alreadyWon = true;
             winner = nextPlayer;
         }
         // if next player's card total is over 20 then current player wins
         if (nextPlayer.getCardTotal() > 20 && currentPlayer.getCardTotal() <= 20 && !alreadyWon) {
+            System.out.println(nextPlayer.getPlayerID() + " went over 20");
             alreadyWon = true;
             winner = currentPlayer;
         }
@@ -239,30 +246,27 @@ public class PazaakGame extends Game {
         if (this.currentPlayer.isStanding() && nextPlayer.isStanding()) {
             // if current player has the same card total as next player the game is a draw
             if (this.currentPlayer.getCardTotal() == nextPlayer.getCardTotal() && !alreadyWon) {
+                System.out.println("Both players have the same card total");
                 alreadyWon = true;
             }
             // if both players' card total is over 20 then the game is a draw
             if (currentPlayer.getCardTotal() > 20 && nextPlayer.getCardTotal() > 20 && !alreadyWon) {
+                System.out.println("Both players went over 20");
                 alreadyWon = true;
             }
-            //if current player is over 20 then nextPLayer wins
-            if (this.currentPlayer.getCardTotal() == -1 && !alreadyWon) {
-                winner = nextPlayer;
-                alreadyWon = true;
-            }
-            // if nextPlayer is over 20 then current player wins
-            if (nextPlayer.getCardTotal() == -1 && !alreadyWon) {
-                winner = this.currentPlayer;
-                alreadyWon = true;
-            }
+
             // if current player has 20 or is closer to 20 than the next player
-            if (this.currentPlayer.getCardTotal() == 20 || currentPlayer.getCardTotal() > nextPlayer.getCardTotal() && !alreadyWon) {
+//            if (this.currentPlayer.getCardTotal() == 20 || this.currentPlayer.getCardTotal() > nextPlayer.getCardTotal() && !alreadyWon) {
+            if (this.currentPlayer.getCardTotal() > nextPlayer.getCardTotal() && !alreadyWon) {
+                System.out.println(this.currentPlayer.getPlayerID() + " stood with the higher total");
                 winner = this.currentPlayer;
                 alreadyWon = true;
             }
             // if next player has 20 or is closer to 20 than the current player
-            if (nextPlayer.getCardTotal() == 20 || nextPlayer.getCardTotal() > currentPlayer.getCardTotal() && !alreadyWon) {
-                winner = this.currentPlayer;
+//            if (nextPlayer.getCardTotal() == 20 || nextPlayer.getCardTotal() > currentPlayer.getCardTotal() && !alreadyWon) {
+            if (nextPlayer.getCardTotal() > this.currentPlayer.getCardTotal() && !alreadyWon) {
+                System.out.println(nextPlayer.getPlayerID() + " stood with the higher total");
+                winner = nextPlayer;
                 alreadyWon = true;
             }
         }
@@ -273,10 +277,10 @@ public class PazaakGame extends Game {
             if (winner != null) {
                 // increment the winner's wins
                 winner.setWins(winner.getWins() + 1);
-                System.out.println(winner.getPlayerID() + " won the round\n");
+                System.out.println("\n" + winner.getPlayerID() + " won the round\n");
                 this.currentPlayer = winner;
             } else {
-                System.out.println("Round was a draw\n");
+                System.out.println("\nRound is a draw\n");
             }
         }
     }
@@ -357,7 +361,7 @@ public class PazaakGame extends Game {
         // Find next player
         int pIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
         PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
-        System.out.println("Next player is " + nextPlayer.getPlayerID());
+        System.out.println("\nNext player is " + nextPlayer.getPlayerID());
 
         if (!nextPlayer.isStanding()) {
             // If next player is not standing, switch to current player
@@ -370,21 +374,30 @@ public class PazaakGame extends Game {
         p.setTurnOver(false);
         boolean cardPlayed = false;
         while (!p.isTurnOver() && !p.isStanding()) {
+            System.out.println();
             this.showBoard();
             System.out.println(p.getPlayerID() + "'s turn");
             System.out.print("Play card (1)/ End turn (2)/ Stand (3)/ Forfeit (4): ");
             int choice = input.nextInt();
+            System.out.println();
 
             switch (choice) {
                 case (1):
                     if (!cardPlayed) {
                         System.out.print("Choose which side card to play (1/2/3/4): ");
                         int sideIndex = input.nextInt() - 1;
-                        p.playCard((SideCard) p.getHand().showCards().get(sideIndex));
-                        cardPlayed = true;
+                        System.out.println();
+                        if (sideIndex < p.getHand().showCards().size()) {
+                            p.playCard((SideCard) p.getHand().showCards().get(sideIndex));
+                            cardPlayed = true;
+                        } else {
+                            System.out.println("Please select a card in your hand");
+                        }
+                        System.out.println();
                         break;
                     } else {
                         System.out.println("You have already played a side card this round");
+                        System.out.println();
                     }
                     break;
                 case (2):

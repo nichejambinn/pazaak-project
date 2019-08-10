@@ -19,7 +19,7 @@ public class PazaakPlayer extends Player {
      */
 	public void play(PazaakGame game) {
             this.game = game;
-            System.out.println(this.playerID + " has joined a game");
+            System.out.println(this.playerID + " has joined the game");
 	}
 
     /**
