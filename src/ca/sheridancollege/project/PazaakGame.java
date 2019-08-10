@@ -73,6 +73,7 @@ public class PazaakGame extends Game {
         this.deck = new GroupOfCards();
 
         this.manual = "How do I shot Pazaak?";
+        this.wager = 0;
 
         // Get side cards, one of each value
         this.sideCards = new GroupOfCards();
