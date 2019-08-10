@@ -257,8 +257,14 @@ public class PazaakGame extends Game {
         if (alreadyWon) {
             // set roundWon accordingly
             this.roundWon = true;
+            // increment the winner's wins
             winner.setWins(winner.getWins() + 1);
+            // reset the players' values
+            currentPlayer.setCardTotal(0);
+            nextPlayer.setCardTotal(0);
+            // set the surrent player to win
             this.currentPlayer = winner;
+            // resets the Game's table cards
             buildDeck();
         }
     }
