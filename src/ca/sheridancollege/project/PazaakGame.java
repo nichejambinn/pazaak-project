@@ -190,6 +190,8 @@ public class PazaakGame extends Game {
         PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
         // check all conditions for round winner only once
         boolean alreadyWon = false;
+        if (this.currentPlayer.isStanding() && nextPlayer.isStanding()) {
+            
         //if current player has forfeited then nextPLayer wins
         if (this.currentPlayer.getCardTotal() <= -1) {
             winner = nextPlayer;
@@ -237,6 +239,17 @@ public class PazaakGame extends Game {
         if (nextPlayer.getCardTotal() == 20 || nextPlayer.getCardTotal() > currentPlayer.getCardTotal()  && !alreadyWon) {
             winner = this.currentPlayer;
             alreadyWon = true;
+        }
+        }
+        // if current player's card total is over 20 then next player wins
+        if (currentPlayer.getCardTotal() > 20 && nextPlayer.getCardTotal() < 20  && !alreadyWon) {
+            alreadyWon = true;
+            winner = nextPlayer;
+        }
+        // if next player's card total is over 20 then current player wins
+        if (nextPlayer.getCardTotal() > 20 && currentPlayer.getCardTotal() < 20  && !alreadyWon) {
+            alreadyWon = true;
+            winner = currentPlayer;
         }
 
         if (alreadyWon) {
