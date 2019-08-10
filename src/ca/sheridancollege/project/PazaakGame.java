@@ -359,52 +359,79 @@ public class PazaakGame extends Game {
         char c;
         boolean takeWagerOnce = true;
         boolean takeWager = true;
+        boolean checkBalance = true;
+
+        // Used to get both players credits
+        int pIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
+        PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
+        
+        System.out.println("\n" + this.currentPlayer.getPlayerID() + " credit: " + this.currentPlayer.getCredits());
+        System.out.println(nextPlayer.getPlayerID() + " credit: " + nextPlayer.getCredits());
+
+        // do while loop for asking wager
         do {
-            while(takeWagerOnce){
-                System.out.print("Enter wager amount: ");
+
+            // Loops only once
+            while (takeWagerOnce) {
+                System.out.print(this.currentPlayer.getPlayerID() + " enter wager amount: ");
                 p1wager = input.nextInt();
-                System.out.println("The wager entered is " + p1wager);
-                System.out.print("Do you accept player1 wager: " + p1wager + "? (Y/N)");
+                System.out.print("Do you accept " + this.currentPlayer.getPlayerID() + " wager " + p1wager + "? (Y/N): ");
                 answer = input.next();
                 c = answer.charAt(0);
                 if ("Y".equals(answer)) {
                     p2wager = p1wager;
-                    takeWager = false;
                     takeWagerOnce = false;
-                    break;
-                } else if ("N".equals(answer)){
-                    System.out.print("Enter wager amount: ");
+                    if (this.currentPlayer.getCredits() >= p2wager && nextPlayer.getCredits() >= p2wager) {
+                        takeWager = false;
+                        checkBalance = false;
+                    } else {
+                        System.out.println("Wager should be less than the credit");
+                    }
+                } else if ("N".equals(answer)) {
+                    p1wager = 0;
+                    System.out.print(nextPlayer.getPlayerID() + " enter wager amount: ");
                     p2wager = input.nextInt();
                     takeWagerOnce = false;
                 }
             }
-            
-            if (p1wager != 0 && p1wager != p2wager) {
-                System.out.print("Do you accept player2 wager " + p2wager + "? (Y/N): ");
+
+            // If player2 did not agree for player1 wager
+            if (p1wager != p2wager) {
+                System.out.print("Do you accept " + nextPlayer.getPlayerID() + " wager " + p2wager + "? (Y/N): ");
                 answer = input.next();
                 if ("Y".equals(answer)) {
                     p1wager = p2wager;
-                    takeWager = false;
-                    break;
-                } else if ("N".equals(answer)){
-                    System.out.print("Enter wager amount: ");
+                    if (this.currentPlayer.getCredits() >= p2wager && nextPlayer.getCredits() >= p2wager) {
+                        takeWager = false;
+                        checkBalance = false;
+                    } else {
+                        System.out.println("Wager should be less than the credit");
+                    }
+                } else if ("N".equals(answer)) {
+                    p2wager = 0;
+                    System.out.print(this.currentPlayer.getPlayerID() + " enter wager amount: ");
                     p1wager = input.nextInt();
                 }
             }
-            if (p1wager != 0 && p1wager != p2wager) {
-                System.out.print("Do you accept player1 wager " + p1wager + "? (Y/N): ");
+            if (p1wager != p2wager) {
+                System.out.print("Do you accept " + this.currentPlayer.getPlayerID() + " wager " + p1wager + "? (Y/N): ");
                 answer = input.next();
                 c = answer.charAt(0);
                 if ("Y".equals(c)) {
                     p2wager = p1wager;
-                    takeWager = false;
-                    break;
+                    if (this.currentPlayer.getCredits() >= p2wager && nextPlayer.getCredits() >= p2wager) {
+                        takeWager = false;
+                        checkBalance = false;
+                    } else {
+                        System.out.println("Wager should be less than the credit");
+                    }
                 } else {
-                    System.out.print("Enter wager amount: ");
+                    p1wager = 0;
+                    System.out.print(nextPlayer.getPlayerID() + " enter wager amount: ");
                     p2wager = input.nextInt();
                 }
             }
-        } while (takeWager);
+        } while (takeWager && checkBalance);
         this.wager = p1wager;
     }
 
