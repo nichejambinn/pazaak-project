@@ -131,7 +131,17 @@ public class PazaakGame extends Game {
      * @return true if the players decide and are able to play again, false otherwise
 	 */
 	public boolean rematch(PazaakPlayer winner) {
-		return true;
+        System.out.print("Do you want to play first? (Y/N)");
+        playFirst = input.next();
+        if ("Y".equalsIgnoreCase(playFirst)){
+            ;
+        } else if ("N".equalsIgnoreCase(playFirst)){
+            int psIndex = (this.currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
+            PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(psIndex);
+            PazaakPlayer temp;
+            this.currentPlayer = nextPlayer;
+        }
+        return true;
 	}
 
 	/**
@@ -161,80 +171,66 @@ public class PazaakGame extends Game {
 
     public void roundWinner() {
         PazaakPlayer winner = null;
-        int pIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
+        int pIndex = (this.currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
         PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
         // check all conditions for round winner only once
         boolean alreadyWon = false;
         //if current player has forfeited then nextPLayer wins
-        if (this.currentPlayer.getCardTotal() <= -1 && alreadyWon == false) {
+        if (this.currentPlayer.getCardTotal() <= -1) {
             winner = nextPlayer;
             alreadyWon = true;
         }
         // if nextPlayer forfeits current player wins
-        if (nextPlayer.getCardTotal() <= -1 && alreadyWon == false) {
-            winner = currentPlayer;
+        if (nextPlayer.getCardTotal() <= -1 && !alreadyWon) {
+            winner = this.currentPlayer;
             alreadyWon = true;
         }
         // if currentPlayer has 9 deck cards then current player wins
-        if (currentPlayer.getTableHand().showCards().size() >= 9 && alreadyWon == false) {
-            winner = currentPlayer;
+        if (this.currentPlayer.getTableHand().showCards().size() >= 9 && !alreadyWon) {
+            winner = this.currentPlayer;
             alreadyWon = true;
         }
         // if next Player has 9 deck cards then next player wins
-        if (nextPlayer.getTableHand().showCards().size() >= 9 && alreadyWon == false) {
+        if (nextPlayer.getTableHand().showCards().size() >= 9 && !alreadyWon) {
             winner = nextPlayer;
             alreadyWon = true;
         }
         // if current player has the same card total as next player the game is a draw
-        if (currentPlayer.getCardTotal() ==  nextPlayer.getCardTotal()  && alreadyWon == false) {
+        if (this.currentPlayer.getCardTotal() ==  nextPlayer.getCardTotal()  && !alreadyWon) {
             alreadyWon = true;
         }
         // if both players' card total is over 20 then the game is a draw
-        if (currentPlayer.getCardTotal() > 20 && nextPlayer.getCardTotal() > 20  && alreadyWon == false) {
+        if (currentPlayer.getCardTotal() > 20 && nextPlayer.getCardTotal() > 20  && !alreadyWon) {
             alreadyWon = true;
         }
         //if current player is over 20 then nextPLayer wins
-        if (this.currentPlayer.getCardTotal() == -1 && alreadyWon == false) {
+        if (this.currentPlayer.getCardTotal() == -1 && !alreadyWon) {
             winner = nextPlayer;
             alreadyWon = true;
         }
         // if nextPlayer is over 20 then current player wins
-        if (nextPlayer.getCardTotal() == -1 && alreadyWon == false) {
+        if (nextPlayer.getCardTotal() == -1 && !alreadyWon) {
             winner = currentPlayer;
             alreadyWon = true;
         }
         // if current player has 20 or is closer to 20 than the next player
-        if (currentPlayer.getCardTotal() == 20 || currentPlayer.getCardTotal() > nextPlayer.getCardTotal()  && alreadyWon == false) {
+        if (currentPlayer.getCardTotal() == 20 || currentPlayer.getCardTotal() > nextPlayer.getCardTotal()  && !alreadyWon) {
             winner = currentPlayer;
             alreadyWon = true;
         }
         // if next player has 20 or is closer to 20 than the current player
-        if (nextPlayer.getCardTotal() == 20 || nextPlayer.getCardTotal() > currentPlayer.getCardTotal()  && alreadyWon == false) {
+        if (nextPlayer.getCardTotal() == 20 || nextPlayer.getCardTotal() > currentPlayer.getCardTotal()  && !alreadyWon) {
             winner = currentPlayer;
             alreadyWon = true;
         }
 
-        // set roundWon accordingly
-        this.roundWon = true;
-
-        currentPlayer.setWins(currentPlayer.getWins()+1);
-        buildDeck();
-
-        System.out.print("Do you want to play first? (Y/N)");
-        playFirst = input.next();
-        if ("Y".equalsIgnoreCase(playFirst)){
-
-        } else if ("N".equalsIgnoreCase(playFirst)){
-            int psIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
-            PazaakPlayer nextPlayer1 = (PazaakPlayer) this.getPlayers().get(psIndex);
-            PazaakPlayer temp;
-            currentPlayer = nextPlayer;
+        if (alreadyWon) {
+            // set roundWon accordingly
+            this.roundWon = true;
+            winner.setWins(winner.getWins() + 1);
+            this.currentPlayer = winner;
+            buildDeck();
         }
-
-        // the winner gets their wins incremented
-        // start a new round by resetting player values
-        // ask winner if they want to play first
-        
     }
 
     public void buildDeck(){
@@ -322,12 +318,12 @@ public class PazaakGame extends Game {
     public void startTurn() {
         PazaakPlayer p = this.getCurrentPlayer();
         p.setTurnOver(false);
+        boolean cardPlayed = false;
         while (!p.isTurnOver() && !p.isStanding()) {
             this.showBoard();
             System.out.println(p.getPlayerID() + "'s turn");
             System.out.print("Play card (1)/ End turn (2)/ Stand (3)/ Forfeit (4): ");
             int choice = input.nextInt();
-            boolean cardPlayed = false;
 
             switch (choice) {
                 case (1):
