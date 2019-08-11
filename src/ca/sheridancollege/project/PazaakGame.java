@@ -72,7 +72,17 @@ public class PazaakGame extends Game {
         // Build table deck, four of each value
         this.deck = new GroupOfCards();
 
-        this.manual = "How do I shot Pazaak?";
+        this.manual = "\nPazaak is a game, similar to blackjack, where the goal of each round is to get a score" +
+                "\nof as close to 20 as possible without going over.\n\nPlayers take turns being dealt" +
+                "a single card with a number value (1-10) onto their table.\nDuring their turn," +
+                " a player may choose to play one of four side cards they were dealt\nat the beginning" +
+                "of the round, stand with their current total and wait for their\nopponent to finish" +
+                " playing that round, or end their turn and receive another table\ncard at the start of" +
+                " their subsequent turn.\n\nThe player with a score closer to 20 than their opponent" +
+                " without going over wins" +
+                " that round.\n\nThe first player to win 3 rounds takes the match and gets the amount" +
+                " of the agreed upon\nwager added to their credit account.\n" ;
+
         this.wager = 0;
 
         // Get side cards, one of each value

@@ -10,6 +10,9 @@ public class Start {
 		// Create game with Spider-Manual
 		PazaakGame game = new PazaakGame();
 
+		System.out.print("Have you played before? Press M to view the manual: ");
+		if (input.next().equalsIgnoreCase("M")) System.out.println(game.getManual());
+
 		// Create p1 Darth Maul and p2 General Kenobi
 		PazaakPlayer p1 = (PazaakPlayer) game.getPlayers().get(0);
 		PazaakPlayer p2 = (PazaakPlayer) game.getPlayers().get(1);
