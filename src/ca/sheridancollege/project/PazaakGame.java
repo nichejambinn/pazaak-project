@@ -401,6 +401,7 @@ public class PazaakGame extends Game {
         
         System.out.println("\n" + this.currentPlayer.getPlayerID() + " credit: " + this.currentPlayer.getCredits());
         System.out.println(nextPlayer.getPlayerID() + " credit: " + nextPlayer.getCredits());
+        System.out.println();
 
         // do while loop for asking wager
         do {
@@ -493,7 +494,7 @@ public class PazaakGame extends Game {
             System.out.println(p.getPlayerID() + "'s turn");
             System.out.print("Play card (1)/ End turn (2)/ Stand (3)/ Forfeit (4): ");
             int choice = input.nextInt();
-            System.out.println();
+//            System.out.println();
 
             switch (choice) {
                 case (1):

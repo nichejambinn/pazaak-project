@@ -12,16 +12,21 @@ public class Start {
 
 		// Create p1 Darth Maul and p2 General Kenobi
 		PazaakPlayer p1 = (PazaakPlayer) game.getPlayers().get(0);
-		p1.play(game);
 		PazaakPlayer p2 = (PazaakPlayer) game.getPlayers().get(1);
-		p2.play(game);
 
 		// Prompt for custom player ID
-		//////////////////////////////////////////////////
+		/*System.out.print("Player 1, enter your name: ");
+		p1.setPlayerID(input.next());
+		System.out.print("\nPlayer 2, enter your name: ");
+		p2.setPlayerID(input.next());*/
+
+		p1.play(game);
+		p2.play(game);
 
 		boolean playing = true;
+
 		// Start the match / rematch
-		System.out.println("Starting a new match\n");
+		System.out.println("\nStarting a new match\n");
 		while (playing) {
 			// Settle on a wager
 			game.takeWager();
