@@ -56,15 +56,43 @@ public class PazaakGameTest {
      * Test of roundWinner method, of class PazaakGame.
      */
     @Test
-    public void testRoundWinner() {
+    public void testBoundaryRoundWinner() {
         System.out.println("roundWinner");
         PazaakGame game = new PazaakGame();
-        PazaakPlayer p1 = (PazaakPlayer) game.getPlayers().get(0);
-        PazaakPlayer p2 = (PazaakPlayer) game.getPlayers().get(1);
+        PazaakPlayer p1 = game.getCurrentPlayer();
+        PazaakPlayer p2 = game.getNextPlayer();
         p1.setCardTotal(20);
         p2.setCardTotal(1);
+        p1.setStanding(true);
+        p2.setStanding(true);
         game.roundWinner();
         assertEquals(1, p1.getWins());
+    }
+
+    @Test
+    public void testGoodRoundWinner() {
+        System.out.println("roundWinner");
+        PazaakGame game = new PazaakGame();
+        PazaakPlayer p1 = game.getCurrentPlayer();
+        PazaakPlayer p2 = game.getNextPlayer();
+        p1.setCardTotal(19);
+        p2.setCardTotal(1);
+        p1.setStanding(true);
+        p2.setStanding(true);
+        game.roundWinner();
+        assertEquals(1, p1.getWins());
+    }
+
+    @Test
+    public void testBadRoundWinner() {
+        System.out.println("roundWinner");
+        PazaakGame game = new PazaakGame();
+        PazaakPlayer p1 = game.getCurrentPlayer();
+        PazaakPlayer p2 = game.getNextPlayer();
+        p1.setCardTotal(25);
+        p2.setCardTotal(1);
+        game.roundWinner();
+        assertEquals(0, p1.getWins());
     }
 
     /**

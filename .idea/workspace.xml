@@ -34,7 +34,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakPlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
+            <state relative-caret-position="119">
               <caret line="47" column="28" lean-forward="true" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
             </state>
           </provider>
@@ -43,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="483" column="26" selection-start-line="483" selection-start-column="16" selection-end-line="483" selection-end-column="26" />
+            <state relative-caret-position="-164">
+              <caret line="248" column="24" selection-start-line="248" selection-start-column="24" selection-end-line="248" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#467#468#0" expanded="true" />
@@ -79,8 +79,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakGameTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="133" column="59" selection-start-line="133" selection-start-column="59" selection-end-line="133" selection-end-column="59" />
+            <state relative-caret-position="118">
+              <caret line="61" column="50" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -88,7 +88,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="-748">
               <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
@@ -107,12 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>roundWinner</find>
-      <find>alreadyWon == false</find>
-      <find>play</find>
-      <find>roundWinn</find>
-      <find>wager</find>
-      <find>roundWinner(</find>
       <find>remat</find>
       <find>invalid input</find>
       <find>play(</find>
@@ -123,7 +117,6 @@
       <find>PazaakG</find>
       <find>endTu</find>
       <find>endTurn(</find>
-      <find>startTurn(</find>
       <find>nner(</find>
       <find>isStanding</find>
       <find>pIndex</find>
@@ -136,7 +129,14 @@
       <find>getNex</find>
       <find>getNextPlayer(</find>
       <find>change</find>
+      <find>testDealCard</find>
       <find>changeTurn</find>
+      <find>checkTotal</find>
+      <find>startTurn(</find>
+      <find>roundWinner(</find>
+      <find>rematch</find>
+      <find>roun</find>
+      <find>roundWiner</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -329,7 +329,7 @@
       <workItem from="1565579679205" duration="374000" />
       <workItem from="1565628030427" duration="360000" />
       <workItem from="1565637037204" duration="7079000" />
-      <workItem from="1565644770349" duration="1143000" />
+      <workItem from="1565644770349" duration="2747000" />
     </task>
     <task id="LOCAL-00001" summary="implemented dealCard, a lot of constructor changes in our classes">
       <created>1565291534007</created>
@@ -513,7 +513,21 @@
       <option name="project" value="LOCAL" />
       <updated>1565645595947</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="tested changeTurn">
+      <created>1565646135530</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1565646135530</updated>
+    </task>
+    <task id="LOCAL-00028" summary="tested changeTurn">
+      <created>1565646742563</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1565646742563</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -526,9 +540,12 @@
     <history-entry file="PazaakPlayerTest - 2019.08.12 at 16h 21m 19s.xml">
       <configuration name="PazaakPlayerTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="PazaakGameTest - 2019.08.12 at 17h 38m 43s.xml">
+      <configuration name="PazaakGameTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70357000" />
+    <option name="totallyTimeSpent" value="71961000" />
   </component>
   <component name="TodoView" selected-index="5">
     <todo-panel id="selected-file">
@@ -555,7 +572,7 @@
       <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49878544" weight="0.3285968" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.20781527" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49878544" visible="true" weight="0.3179396" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49878544" weight="0.3179396" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -563,7 +580,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3285968" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50364375" side_tool="true" weight="0.28241563" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49635628" weight="0.28241563" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.49635628" visible="true" weight="0.28241563" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message Pane" order="13" weight="0.3285968" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -582,7 +599,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implemented dealCard, a lot of constructor changes in our classes" />
     <MESSAGE value="implemented assignSideDeck, changed some things with stand/endTurn" />
     <MESSAGE value="implemented showBoard method to see what's going on" />
     <MESSAGE value="tried to add some playability, changeTurn method is messed up" />
@@ -607,7 +623,8 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/nichejambinn/pazaak-project&#10;&#10;# Conflicts:&#10;#&#9;src/ca/sheridancollege/project/PazaakGame.java" />
     <MESSAGE value="updated dialogue of takeWager for comprehension" />
     <MESSAGE value="implemented getNextPlayer method, removed redundancies" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented getNextPlayer method, removed redundancies" />
+    <MESSAGE value="tested changeTurn" />
+    <option name="LAST_COMMIT_MESSAGE" value="tested changeTurn" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pazaak-project.vpdm/Class Diagram1.vpd">
@@ -704,22 +721,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakPlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
+        <state relative-caret-position="119">
           <caret line="47" column="28" lean-forward="true" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="-748">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="483" column="26" selection-start-line="483" selection-start-column="16" selection-end-line="483" selection-end-column="26" />
+        <state relative-caret-position="-164">
+          <caret line="248" column="24" selection-start-line="248" selection-start-column="24" selection-end-line="248" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#467#468#0" expanded="true" />
@@ -752,8 +769,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakGameTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="133" column="59" selection-start-line="133" selection-start-column="59" selection-end-line="133" selection-end-column="59" />
+        <state relative-caret-position="118">
+          <caret line="61" column="50" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
         </state>
       </provider>
     </entry>
