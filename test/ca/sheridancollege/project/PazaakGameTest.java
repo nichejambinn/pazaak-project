@@ -35,8 +35,14 @@ public class PazaakGameTest {
     @Test
     public void testDealCard() {
         System.out.println("dealCard");
-        PazaakGame instance = new PazaakGame();
-        instance.dealCard();
+        PazaakGame game = new PazaakGame();
+        PazaakPlayer p1 = (PazaakPlayer) game.getPlayers().get(0);
+        game.setCurrentPlayer(p1);
+        game.buildDeck();
+        p1.setTableHand(new GroupOfCards());
+        game.dealCard();
+        boolean result = p1.getCardTotal() > 0;
+        assertEquals(true, result);
     }
 
     /**
