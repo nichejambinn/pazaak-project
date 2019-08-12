@@ -43,11 +43,10 @@ public class PazaakPlayerTest {
     @Test
     public void testPlay() {
         System.out.println("play");
-        PazaakGame game = null;
-        PazaakPlayer instance = null;
+        PazaakGame game = new PazaakGame();
+        PazaakPlayer instance = new PazaakPlayer("Jimbo");
         instance.play(game);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(game, instance.getGame());
     }
 
     /**

@@ -199,6 +199,15 @@ public class PazaakPlayer extends Player {
 	public GroupOfCards getTableHand() {
 		return this.tableHand;
 	}
+        
+        /**
+         * Return the game for this player
+         * 
+         * @return 
+         */
+        public PazaakGame getGame() {
+		return this.game;
+	}
 
 	/**
 	 * Set the table card this player has to the given value
