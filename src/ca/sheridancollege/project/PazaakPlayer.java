@@ -9,15 +9,6 @@ public class PazaakPlayer extends Player {
 	private GroupOfCards tableHand;
 	private boolean standing;
 	private boolean turnOver;
-
-	public PazaakGame getGame() {
-		return game;
-	}
-
-	public void setGame(PazaakGame game) {
-		this.game = game;
-	}
-
 	private PazaakGame game;
 
     /**
@@ -207,6 +198,15 @@ public class PazaakPlayer extends Player {
      */
 	public GroupOfCards getTableHand() {
 		return this.tableHand;
+	}
+        
+        /**
+         * Return the game for this player
+         * 
+         * @return 
+         */
+        public PazaakGame getGame() {
+		return this.game;
 	}
 
 	/**

@@ -18,26 +18,6 @@ import static org.junit.Assert.*;
  */
 public class PazaakGameTest {
     
-    /**
-     * Test of play method, of class PazaakGame.
-     */
-    @Test
-    public void testPlay() {
-        System.out.println("play");
-        PazaakGame instance = new PazaakGame();
-        instance.play();
-    }
-
-    /**
-     * Test of setRoundWon method, of class PazaakGame.
-     */
-    @Test
-    public void testSetRoundWon() {
-        System.out.println("setRoundWon");
-        boolean roundWon = false;
-        PazaakGame instance = new PazaakGame();
-        instance.setRoundWon(roundWon);
-    }
 
     /**
      * Test of declareWinner method, of class PazaakGame.
@@ -115,28 +95,6 @@ public class PazaakGameTest {
         instance.assignSideDeck(player);
     }
 
-    /**
-     * Test of getSideCards method, of class PazaakGame.
-     */
-    @Test
-    public void testGetSideCards() {
-        System.out.println("getSideCards");
-        PazaakGame instance = new PazaakGame();
-        GroupOfCards expResult = null;
-        GroupOfCards result = instance.getSideCards();
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of setSideCards method, of class PazaakGame.
-     */
-    @Test
-    public void testSetSideCards() {
-        System.out.println("setSideCards");
-        GroupOfCards sideCards = null;
-        PazaakGame instance = new PazaakGame();
-        instance.setSideCards(sideCards);
-    }
 
     /**
      * Test of takeWager method, of class PazaakGame.
@@ -146,6 +104,51 @@ public class PazaakGameTest {
         System.out.println("takeWager");
         PazaakGame instance = new PazaakGame();
         instance.takeWager();
+    }
+
+    /**
+     * Test of checkCredit method, of class PazaakGame.
+     */
+    @Test
+    public void testGoodCheckCredit() {
+        System.out.println("checkCredit");
+        int player1 = 1000;
+        int player2 = 1000;
+        int wager = 150;
+        PazaakGame instance = new PazaakGame();
+        boolean expResult = false;
+        boolean result = instance.checkCredit(player1, player2, wager);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of checkCredit method, of class PazaakGame.
+     */
+    @Test
+    public void testBadCheckCredit() {
+        System.out.println("checkCredit");
+        int player1 = 1000;
+        int player2 = 1000;
+        int wager = 3000;
+        PazaakGame instance = new PazaakGame();
+        boolean expResult = true;
+        boolean result = instance.checkCredit(player1, player2, wager);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of checkCredit method, of class PazaakGame.
+     */
+    @Test
+    public void testBoundaryCheckCredit() {
+        System.out.println("checkCredit");
+        int player1 = 1000;
+        int player2 = 1000;
+        int wager = 1000;
+        PazaakGame instance = new PazaakGame();
+        boolean expResult = false;
+        boolean result = instance.checkCredit(player1, player2, wager);
+        assertEquals(expResult, result);
     }
 
     /**
