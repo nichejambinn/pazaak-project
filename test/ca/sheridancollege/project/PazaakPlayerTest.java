@@ -127,6 +127,9 @@ public class PazaakPlayerTest {
         System.out.println("playCard");
         SideCard card = new SideCard(SideValue.PLUS_TWO);
         PazaakPlayer instance = new PazaakPlayer("John");
+        GroupOfCards cards = new GroupOfCards();
+        cards.showCards().add(card);
+        instance.setHand(cards);
         instance.playCard(card);
         assertEquals(2, instance.getCardTotal());
     }
