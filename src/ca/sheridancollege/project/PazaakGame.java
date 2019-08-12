@@ -424,7 +424,7 @@ public class PazaakGame extends Game {
                     p1wager = input.nextInt();
                 }
                 
-                System.out.print("Do you accept " + this.currentPlayer.getPlayerID() + " wager " + p1wager + "? (Y/N): ");
+                System.out.print(nextPlayer.getPlayerID() + ", do you accept " + this.currentPlayer.getPlayerID() + "'s wager " + p1wager + "? (Y/N): ");
                 answer = input.next();
                 if ("Y".equals(answer)) {
                     boolean ret = checkCredit(currentPlayCred, nextPlayCred, p1wager);
@@ -445,7 +445,7 @@ public class PazaakGame extends Game {
 
             // If player2 did not agree for player1 wager
             if (p1wager != p2wager) {
-                System.out.print("Do you accept " + nextPlayer.getPlayerID() + " wager " + p2wager + "? (Y/N): ");
+                System.out.print(this.currentPlayer.getPlayerID() + ", do you accept " + nextPlayer.getPlayerID() + "'s wager " + p2wager + "? (Y/N): ");
                 answer = input.next();
                 if ("Y".equals(answer)) {
                     boolean ret = checkCredit(currentPlayCred, nextPlayCred, p2wager);
