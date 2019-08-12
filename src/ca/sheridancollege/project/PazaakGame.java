@@ -494,6 +494,16 @@ public class PazaakGame extends Game {
         }
     }
 
+    public boolean isNumeric(String str) {
+        try {
+            int n = Integer.parseInt(str);
+        } catch(NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
+
+
     public void startTurn() {
         PazaakPlayer p = this.currentPlayer;
         p.setTurnOver(false);
@@ -503,7 +513,13 @@ public class PazaakGame extends Game {
             this.showBoard();
             System.out.println(p.getPlayerID() + "'s turn");
             System.out.print("Play card (1)/ End turn (2)/ Stand (3)/ Forfeit (4): ");
-            int choice = input.nextInt();
+            String res = input.next();
+            while (!isNumeric(res)) {
+                System.out.println("Invalid input");
+                System.out.print("Play card (1)/ End turn (2)/ Stand (3)/ Forfeit (4): ");
+                res = input.next();
+            }
+            int choice = Integer.parseInt(res);
 //            System.out.println();
 
             switch (choice) {
