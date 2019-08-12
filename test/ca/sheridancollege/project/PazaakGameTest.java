@@ -18,15 +18,22 @@ import static org.junit.Assert.*;
  */
 public class PazaakGameTest {
     
-
+    
     /**
      * Test of declareWinner method, of class PazaakGame.
      */
     @Test
     public void testDeclareWinner() {
         System.out.println("declareWinner");
-        PazaakGame instance = new PazaakGame();
-        instance.declareWinner();
+        PazaakGame game = new PazaakGame();
+        PazaakPlayer p1 = (PazaakPlayer) game.getPlayers().get(0);
+        PazaakPlayer p2 = (PazaakPlayer) game.getPlayers().get(1);
+        game.setWager(1000);
+        p1.play(game);
+	p2.play(game);
+        p1.setWins(3);
+        game.declareWinner();
+        assertEquals(2000, p1.getCredits());
     }
 
     /**
@@ -45,8 +52,13 @@ public class PazaakGameTest {
     @Test
     public void testRoundWinner() {
         System.out.println("roundWinner");
-        PazaakGame instance = new PazaakGame();
-        instance.roundWinner();
+        PazaakGame game = new PazaakGame();
+        PazaakPlayer p1 = (PazaakPlayer) game.getPlayers().get(0);
+        PazaakPlayer p2 = (PazaakPlayer) game.getPlayers().get(1);
+        p1.setCardTotal(20);
+        p2.setCardTotal(1);
+        game.roundWinner();
+        assertEquals(1, p1.getWins());
     }
 
     /**
