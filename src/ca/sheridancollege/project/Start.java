@@ -7,10 +7,9 @@ public class Start {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 
-		// Create game with Spider-Manual
 		PazaakGame game = new PazaakGame();
 
-		System.out.print("Have you played before? Press M to view the manual: ");
+		System.out.print("Have you played before? Press M to view the manual, or return any key to continue: ");
 		if (input.next().equalsIgnoreCase("M")) System.out.println(game.getManual());
 
 		// Create p1 Darth Maul and p2 General Kenobi
