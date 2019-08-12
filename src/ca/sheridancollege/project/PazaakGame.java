@@ -419,16 +419,22 @@ public class PazaakGame extends Game {
         do {
 
             // Loops only once
-                System.out.print(this.currentPlayer.getPlayerID() + " enter wager amount: ");
-                p1wager = input.nextInt();
+                if (p1wager==0){
+                    System.out.print(this.currentPlayer.getPlayerID() + " enter wager amount: ");
+                    p1wager = input.nextInt();
+                }
+                
                 System.out.print("Do you accept " + this.currentPlayer.getPlayerID() + " wager " + p1wager + "? (Y/N): ");
                 answer = input.next();
                 if ("Y".equals(answer)) {
-                    boolean ret = checkCredit(currentPlayCred, nextPlayCred, p2wager);
+                    boolean ret = checkCredit(currentPlayCred, nextPlayCred, p1wager);
                     takeWager = ret;
                     checkBalance = ret;
                     if (ret == false){
                         p2wager = p1wager;
+                    } else {
+                        System.out.print(nextPlayer.getPlayerID() + " enter wager amount: ");
+                        p2wager = input.nextInt();
                     }
                 } else if ("N".equals(answer)) {
                     p1wager = 0;
@@ -447,6 +453,9 @@ public class PazaakGame extends Game {
                     checkBalance = ret;
                     if (ret == false){
                         p1wager = p2wager;
+                    } else {
+                        System.out.print(this.currentPlayer.getPlayerID() + " enter wager amount: ");
+                        p1wager = input.nextInt();
                     }
                 } else if ("N".equals(answer)) {
                     p2wager = 0;
@@ -454,8 +463,8 @@ public class PazaakGame extends Game {
                     p1wager = input.nextInt();
                 }
             }
-        } while (takeWager && checkBalance);
-        this.wager = p1wager;
+        } while (takeWager && checkBalance); // do while loop until takeWager and checkBalance are true
+        this.wager = p1wager; // sets the wager into the agreed wager
     }
     
     // To check if the wage that is entered by the user is not greater than its credit
