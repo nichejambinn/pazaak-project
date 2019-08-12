@@ -546,12 +546,6 @@ public class PazaakGame extends Game {
     }
 
     /**
-     *
-     */
-    public void checkTotal() {
-    }
-
-    /**
      * Displays the game board
      */
     public void showBoard() {

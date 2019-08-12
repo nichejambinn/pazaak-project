@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e541034-feda-483b-b794-7bd5b09c6d5d" name="Default Changelist" comment="" />
+    <list default="true" id="8e541034-feda-483b-b794-7bd5b09c6d5d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakGameTest.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="447" column="119" selection-start-line="447" selection-start-column="119" selection-end-line="447" selection-end-column="119" />
+            <state relative-caret-position="67">
+              <caret line="483" column="26" selection-start-line="483" selection-start-column="16" selection-end-line="483" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#467#468#0" expanded="true" />
@@ -73,19 +76,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakGameTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-289">
-              <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
-              <folding>
-                <element signature="e#0#3383#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="186">
+              <caret line="133" column="59" selection-start-line="133" selection-start-column="59" selection-end-line="133" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
@@ -107,9 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getTable</find>
-      <find>getPlayers</find>
-      <find>round</find>
       <find>roundWinner</find>
       <find>alreadyWon == false</find>
       <find>play</find>
@@ -133,9 +130,13 @@
       <find>showBoard(</find>
       <find>checkCred</find>
       <find>ager(</find>
-      <find>change</find>
       <find>pInde</find>
       <find>winner</find>
+      <find>changeTurn(</find>
+      <find>getNex</find>
+      <find>getNextPlayer(</find>
+      <find>change</find>
+      <find>changeTurn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -152,11 +153,11 @@
         <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/Display.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/TableCard.java" />
-        <option value="$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakGameTest.java" />
         <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java" />
         <option value="$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakPlayerTest.java" />
         <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakPlayer.java" />
         <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java" />
+        <option value="$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakGameTest.java" />
       </list>
     </option>
   </component>
@@ -257,7 +258,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Start">
+  <component name="RunManager" selected="JUnit.PazaakGameTest">
     <configuration name="Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ca.sheridancollege.project.Start" />
       <module name="pazaak-project" />
@@ -267,6 +268,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PazaakGameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pazaak-project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.sheridancollege.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ca.sheridancollege.project" />
+      <option name="MAIN_CLASS_NAME" value="ca.sheridancollege.project.PazaakGameTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -288,6 +304,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PazaakGameTest" />
         <item itemvalue="Application.Start" />
         <item itemvalue="JUnit.PazaakPlayerTest" />
       </list>
@@ -312,7 +329,7 @@
       <workItem from="1565579679205" duration="374000" />
       <workItem from="1565628030427" duration="360000" />
       <workItem from="1565637037204" duration="7079000" />
-      <workItem from="1565644770349" duration="628000" />
+      <workItem from="1565644770349" duration="1143000" />
     </task>
     <task id="LOCAL-00001" summary="implemented dealCard, a lot of constructor changes in our classes">
       <created>1565291534007</created>
@@ -489,7 +506,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565645384734</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="implemented getNextPlayer method, removed redundancies">
+      <created>1565645595947</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1565645595947</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -504,7 +528,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69842000" />
+    <option name="totallyTimeSpent" value="70357000" />
   </component>
   <component name="TodoView" selected-index="5">
     <todo-panel id="selected-file">
@@ -582,7 +606,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/ca/sheridancollege/project/PazaakGame.java&#10;#&#9;test/ca/sheridancollege/project/PazaakPlayerTest.java" />
     <MESSAGE value="Merge branch 'master' of https://github.com/nichejambinn/pazaak-project&#10;&#10;# Conflicts:&#10;#&#9;src/ca/sheridancollege/project/PazaakGame.java" />
     <MESSAGE value="updated dialogue of takeWager for comprehension" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated dialogue of takeWager for comprehension" />
+    <MESSAGE value="implemented getNextPlayer method, removed redundancies" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented getNextPlayer method, removed redundancies" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pazaak-project.vpdm/Class Diagram1.vpd">
@@ -684,20 +709,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakGameTest.java">
+    <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-289">
-          <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#3383#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="447" column="119" selection-start-line="447" selection-start-column="119" selection-end-line="447" selection-end-column="119" />
+        <state relative-caret-position="67">
+          <caret line="483" column="26" selection-start-line="483" selection-start-column="16" selection-end-line="483" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#467#468#0" expanded="true" />
@@ -728,10 +750,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java">
+    <entry file="file://$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakGameTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="186">
+          <caret line="133" column="59" selection-start-line="133" selection-start-column="59" selection-end-line="133" selection-end-column="59" />
         </state>
       </provider>
     </entry>
