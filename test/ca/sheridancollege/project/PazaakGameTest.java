@@ -30,19 +30,6 @@ public class PazaakGameTest {
     }
 
     /**
-     * Test of rematch method, of class PazaakGame.
-     */
-    @Test
-    public void testRematch() {
-        System.out.println("rematch");
-        PazaakPlayer winner = null;
-        PazaakGame instance = new PazaakGame();
-        boolean expResult = false;
-        boolean result = instance.rematch(winner);
-        assertEquals(expResult, result);
-    }
-
-    /**
      * Test of dealCard method, of class PazaakGame.
      */
     @Test
@@ -63,16 +50,6 @@ public class PazaakGameTest {
     }
 
     /**
-     * Test of buildDeck method, of class PazaakGame.
-     */
-    @Test
-    public void testBuildDeck() {
-        System.out.println("buildDeck");
-        PazaakGame instance = new PazaakGame();
-        instance.buildDeck();
-    }
-
-    /**
      * Test of isRoundWon method, of class PazaakGame.
      */
     @Test
@@ -82,28 +59,6 @@ public class PazaakGameTest {
         boolean expResult = false;
         boolean result = instance.isRoundWon();
         assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of assignSideDeck method, of class PazaakGame.
-     */
-    @Test
-    public void testAssignSideDeck() {
-        System.out.println("assignSideDeck");
-        PazaakPlayer player = null;
-        PazaakGame instance = new PazaakGame();
-        instance.assignSideDeck(player);
-    }
-
-
-    /**
-     * Test of takeWager method, of class PazaakGame.
-     */
-    @Test
-    public void testTakeWager() {
-        System.out.println("takeWager");
-        PazaakGame instance = new PazaakGame();
-        instance.takeWager();
     }
 
     /**
@@ -162,16 +117,6 @@ public class PazaakGameTest {
     }
 
     /**
-     * Test of startTurn method, of class PazaakGame.
-     */
-    @Test
-    public void testStartTurn() {
-        System.out.println("startTurn");
-        PazaakGame instance = new PazaakGame();
-        instance.startTurn();
-    }
-
-    /**
      * Test of checkTotal method, of class PazaakGame.
      */
     @Test
@@ -179,16 +124,6 @@ public class PazaakGameTest {
         System.out.println("checkTotal");
         PazaakGame instance = new PazaakGame();
         instance.checkTotal();
-    }
-
-    /**
-     * Test of showBoard method, of class PazaakGame.
-     */
-    @Test
-    public void testShowBoard() {
-        System.out.println("showBoard");
-        PazaakGame instance = new PazaakGame();
-        instance.showBoard();
     }
     
 }
