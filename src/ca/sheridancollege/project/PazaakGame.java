@@ -421,7 +421,6 @@ public class PazaakGame extends Game {
         // do while loop for asking wager
         do {
 
-            // Loops only once
                 if (p1wager==0){
                     System.out.print(this.currentPlayer.getPlayerID() + " enter wager amount: ");
                     p1wager = input.nextInt();
