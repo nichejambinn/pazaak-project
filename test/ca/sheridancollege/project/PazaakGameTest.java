@@ -42,8 +42,14 @@ public class PazaakGameTest {
     @Test
     public void testDealCard() {
         System.out.println("dealCard");
-        PazaakGame instance = new PazaakGame();
-        instance.dealCard();
+        PazaakGame game = new PazaakGame();
+        PazaakPlayer p1 = (PazaakPlayer) game.getPlayers().get(0);
+        game.setCurrentPlayer(p1);
+        game.buildDeck();
+        p1.setTableHand(new GroupOfCards());
+        game.dealCard();
+        boolean result = p1.getCardTotal() > 0;
+        assertEquals(true, result);
     }
 
     /**
@@ -122,20 +128,28 @@ public class PazaakGameTest {
      * Test of changeTurn method, of class PazaakGame.
      */
     @Test
-    public void testChangeTurn() {
-        System.out.println("changeTurn");
-        PazaakGame instance = new PazaakGame();
-        instance.changeTurn();
+    public void testGoodChangeTurn() {
+        System.out.println("changeTurn, nextPlayer is not standing");
+        PazaakGame game = new PazaakGame();
+        PazaakPlayer currentPlayer = game.getCurrentPlayer();
+        PazaakPlayer nextPlayer = game.getNextPlayer();
+
+        game.changeTurn();
+
+        assertEquals(game.getCurrentPlayer(), nextPlayer);
     }
 
-    /**
-     * Test of checkTotal method, of class PazaakGame.
-     */
     @Test
-    public void testCheckTotal() {
-        System.out.println("checkTotal");
-        PazaakGame instance = new PazaakGame();
-        instance.checkTotal();
+    public void testBadChangeTurn() {
+        System.out.println("changeTurn, nextPlayer is standing");
+        PazaakGame game = new PazaakGame();
+        PazaakPlayer currentPlayer = game.getCurrentPlayer();
+        PazaakPlayer nextPlayer = game.getNextPlayer();
+        nextPlayer.setStanding(true);
+
+        game.changeTurn();
+
+        assertEquals(game.getCurrentPlayer(), currentPlayer);
     }
     
 }
