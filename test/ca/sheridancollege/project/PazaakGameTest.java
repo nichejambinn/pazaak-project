@@ -1,68 +1,191 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package ca.sheridancollege.project;
 
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.junit.runner.RunWith;
-
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import static org.junit.Assert.*;
 
-@RunWith(Arquillian.class)
+/**
+ *
+ * @author DILJOT
+ */
 public class PazaakGameTest {
-    @Deployment
-    public static JavaArchive createDeployment() {
-        return ShrinkWrap.create(JavaArchive.class)
-                .addClass(PazaakGame.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+    
+    /**
+     * Test of play method, of class PazaakGame.
+     */
+    @Test
+    public void testPlay() {
+        System.out.println("play");
+        PazaakGame instance = new PazaakGame();
+        instance.play();
     }
 
-    @org.junit.Test
-    public void play() {
+    /**
+     * Test of setRoundWon method, of class PazaakGame.
+     */
+    @Test
+    public void testSetRoundWon() {
+        System.out.println("setRoundWon");
+        boolean roundWon = false;
+        PazaakGame instance = new PazaakGame();
+        instance.setRoundWon(roundWon);
     }
 
-    @org.junit.Test
-    public void declareWinner() {
+    /**
+     * Test of declareWinner method, of class PazaakGame.
+     */
+    @Test
+    public void testDeclareWinner() {
+        System.out.println("declareWinner");
+        PazaakGame instance = new PazaakGame();
+        instance.declareWinner();
     }
 
-    @org.junit.Test
-    public void rematch() {
+    /**
+     * Test of rematch method, of class PazaakGame.
+     */
+    @Test
+    public void testRematch() {
+        System.out.println("rematch");
+        PazaakPlayer winner = null;
+        PazaakGame instance = new PazaakGame();
+        boolean expResult = false;
+        boolean result = instance.rematch(winner);
+        assertEquals(expResult, result);
     }
 
-    @org.junit.Test
-    public void dealCard() {
+    /**
+     * Test of dealCard method, of class PazaakGame.
+     */
+    @Test
+    public void testDealCard() {
+        System.out.println("dealCard");
+        PazaakGame instance = new PazaakGame();
+        instance.dealCard();
     }
 
-    @org.junit.Test
-    public void roundWinner() {
+    /**
+     * Test of roundWinner method, of class PazaakGame.
+     */
+    @Test
+    public void testRoundWinner() {
+        System.out.println("roundWinner");
+        PazaakGame instance = new PazaakGame();
+        instance.roundWinner();
     }
 
-    @org.junit.Test
-    public void buildDeck() {
+    /**
+     * Test of buildDeck method, of class PazaakGame.
+     */
+    @Test
+    public void testBuildDeck() {
+        System.out.println("buildDeck");
+        PazaakGame instance = new PazaakGame();
+        instance.buildDeck();
     }
 
-    @org.junit.Test
-    public void assignSideDeck() {
+    /**
+     * Test of isRoundWon method, of class PazaakGame.
+     */
+    @Test
+    public void testIsRoundWon() {
+        System.out.println("isRoundWon");
+        PazaakGame instance = new PazaakGame();
+        boolean expResult = false;
+        boolean result = instance.isRoundWon();
+        assertEquals(expResult, result);
     }
 
-    @org.junit.Test
-    public void takeWager() {
+    /**
+     * Test of assignSideDeck method, of class PazaakGame.
+     */
+    @Test
+    public void testAssignSideDeck() {
+        System.out.println("assignSideDeck");
+        PazaakPlayer player = null;
+        PazaakGame instance = new PazaakGame();
+        instance.assignSideDeck(player);
     }
 
-    @org.junit.Test
-    public void changeTurn() {
+    /**
+     * Test of getSideCards method, of class PazaakGame.
+     */
+    @Test
+    public void testGetSideCards() {
+        System.out.println("getSideCards");
+        PazaakGame instance = new PazaakGame();
+        GroupOfCards expResult = null;
+        GroupOfCards result = instance.getSideCards();
+        assertEquals(expResult, result);
     }
 
-    @org.junit.Test
-    public void startTurn() {
+    /**
+     * Test of setSideCards method, of class PazaakGame.
+     */
+    @Test
+    public void testSetSideCards() {
+        System.out.println("setSideCards");
+        GroupOfCards sideCards = null;
+        PazaakGame instance = new PazaakGame();
+        instance.setSideCards(sideCards);
     }
 
-    @org.junit.Test
-    public void checkTotal() {
+    /**
+     * Test of takeWager method, of class PazaakGame.
+     */
+    @Test
+    public void testTakeWager() {
+        System.out.println("takeWager");
+        PazaakGame instance = new PazaakGame();
+        instance.takeWager();
     }
 
-    @org.junit.Test
-    public void showBoard() {
+    /**
+     * Test of changeTurn method, of class PazaakGame.
+     */
+    @Test
+    public void testChangeTurn() {
+        System.out.println("changeTurn");
+        PazaakGame instance = new PazaakGame();
+        instance.changeTurn();
     }
+
+    /**
+     * Test of startTurn method, of class PazaakGame.
+     */
+    @Test
+    public void testStartTurn() {
+        System.out.println("startTurn");
+        PazaakGame instance = new PazaakGame();
+        instance.startTurn();
+    }
+
+    /**
+     * Test of checkTotal method, of class PazaakGame.
+     */
+    @Test
+    public void testCheckTotal() {
+        System.out.println("checkTotal");
+        PazaakGame instance = new PazaakGame();
+        instance.checkTotal();
+    }
+
+    /**
+     * Test of showBoard method, of class PazaakGame.
+     */
+    @Test
+    public void testShowBoard() {
+        System.out.println("showBoard");
+        PazaakGame instance = new PazaakGame();
+        instance.showBoard();
+    }
+    
 }
