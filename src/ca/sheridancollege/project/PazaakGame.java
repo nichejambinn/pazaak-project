@@ -460,10 +460,10 @@ public class PazaakGame extends Game {
     
     // To check if the wage that is entered by the user is not greater than its credit
     public boolean checkCredit(int player1, int player2, int wager){
-        if (player1 >= wager && player2 >= wager){
+        if (player1 >= wager && player2 >= wager && wager > 0){
             checkCred = false;
         } else {
-            System.out.println("Wager should be less than the credit");
+            System.out.println("Wager should be less than the credit and greater than 0");
             checkCred = true;
         }
         return checkCred;
