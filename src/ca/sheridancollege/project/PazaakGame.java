@@ -248,8 +248,7 @@ public class PazaakGame extends Game {
 
     public void roundWinner() {
         PazaakPlayer winner = null;
-        int pIndex = (this.currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
-        PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
+        PazaakPlayer nextPlayer = getNextPlayer();
 
         // check all conditions for round winner only once
         boolean alreadyWon = false;
@@ -394,14 +393,18 @@ public class PazaakGame extends Game {
         this.sideCards = sideCards;
     }
 
+    public PazaakPlayer getNextPlayer() {
+        int pIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
+        return (PazaakPlayer) this.getPlayers().get(pIndex);
+    }
+
     /**
      *
      */
     public void takeWager() {
         // Used to get both players credits
-        int pIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
-        PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
-        
+        PazaakPlayer nextPlayer = getNextPlayer();
+
         int p1wager = 0;
         int p2wager = 0;
         int currentPlayCred = this.currentPlayer.getCredits();
@@ -482,8 +485,7 @@ public class PazaakGame extends Game {
         PazaakPlayer currentPlayer = this.currentPlayer;
 
         // Find next player
-        int pIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
-        PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
+        PazaakPlayer nextPlayer = getNextPlayer();
         System.out.println("\nNext player is " + nextPlayer.getPlayerID());
 
         if (!nextPlayer.isStanding()) {
