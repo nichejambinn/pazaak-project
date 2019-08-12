@@ -74,7 +74,7 @@ public class PazaakGame extends Game {
 
         this.manual = "\nPazaak is a game, similar to blackjack, where the goal of each round is to get a score" +
                 "\nof as close to 20 as possible without going over.\n\nPlayers take turns being dealt" +
-                "a single card with a number value (1-10) onto their table.\nDuring their turn," +
+                " a single card with a number value (1-10) onto their table.\nDuring their turn," +
                 " a player may choose to play one of four side cards they were dealt\nat the beginning" +
                 "of the round, stand with their current total and wait for their\nopponent to finish" +
                 " playing that round, or end their turn and receive another table\ncard at the start of" +
@@ -166,8 +166,7 @@ public class PazaakGame extends Game {
 
         boolean playAgain = false;
 
-        int pIndex = (winner == (PazaakPlayer)this.getPlayers().get(0)) ? 1 : 0;
-        PazaakPlayer loser = (PazaakPlayer) this.getPlayers().get(pIndex);
+        PazaakPlayer loser = getNextPlayer();
 
         while (loserRematch == 0 && loser.getCredits() > 0) {
             System.out.print(loser.getPlayerID() + ", would you care for a rematch (Y/N)? ");
@@ -247,8 +246,7 @@ public class PazaakGame extends Game {
 
     public void roundWinner() {
         PazaakPlayer winner = null;
-        int pIndex = (this.currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
-        PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
+        PazaakPlayer nextPlayer = getNextPlayer();
 
         // check all conditions for round winner only once
         boolean alreadyWon = false;
@@ -393,6 +391,11 @@ public class PazaakGame extends Game {
         this.sideCards = sideCards;
     }
 
+    public PazaakPlayer getNextPlayer() {
+        int pIndex = (this.currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
+        return (PazaakPlayer) this.getPlayers().get(pIndex);
+    }
+
     /**
      *
      */
@@ -406,8 +409,7 @@ public class PazaakGame extends Game {
         boolean checkBalance = true;
 
         // Used to get both players credits
-        int pIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
-        PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
+        PazaakPlayer nextPlayer = getNextPlayer();
         
         System.out.println("\n" + this.currentPlayer.getPlayerID() + " credit: " + this.currentPlayer.getCredits());
         System.out.println(nextPlayer.getPlayerID() + " credit: " + nextPlayer.getCredits());
@@ -420,19 +422,21 @@ public class PazaakGame extends Game {
             while (takeWagerOnce) {
                 System.out.print(this.currentPlayer.getPlayerID() + " enter wager amount: ");
                 p1wager = input.nextInt();
-                System.out.print("Do you accept " + this.currentPlayer.getPlayerID() + " wager " + p1wager + "? (Y/N): ");
+                System.out.print(nextPlayer.getPlayerID() + ", do you accept " + this.currentPlayer.getPlayerID() + "'s wager " + p1wager + "? (Y/N): ");
                 answer = input.next();
                 c = answer.charAt(0);
-                if ("Y".equals(answer)) {
+                if ("Y".equalsIgnoreCase(answer)) {
                     p2wager = p1wager;
                     takeWagerOnce = false;
                     if (this.currentPlayer.getCredits() >= p2wager && nextPlayer.getCredits() >= p2wager) {
                         takeWager = false;
                         checkBalance = false;
+                    } else if (p2wager <= 0) {
+                        System.out.println("Wager should be greater than zero");
                     } else {
                         System.out.println("Wager should be less than the credit");
                     }
-                } else if ("N".equals(answer)) {
+                } else if ("N".equalsIgnoreCase(answer)) {
                     p1wager = 0;
                     System.out.print(nextPlayer.getPlayerID() + " enter wager amount: ");
                     p2wager = input.nextInt();
@@ -442,31 +446,35 @@ public class PazaakGame extends Game {
 
             // If player2 did not agree for player1 wager
             if (p1wager != p2wager) {
-                System.out.print("Do you accept " + nextPlayer.getPlayerID() + " wager " + p2wager + "? (Y/N): ");
+                System.out.print(this.currentPlayer.getPlayerID() + ", do you accept " + nextPlayer.getPlayerID() + "'s wager " + p2wager + "? (Y/N): ");
                 answer = input.next();
-                if ("Y".equals(answer)) {
+                if ("Y".equalsIgnoreCase(answer)) {
                     p1wager = p2wager;
                     if (this.currentPlayer.getCredits() >= p2wager && nextPlayer.getCredits() >= p2wager) {
                         takeWager = false;
                         checkBalance = false;
+                    } else if (p1wager <= 0) {
+                        System.out.println("Wager should be greater than zero");
                     } else {
                         System.out.println("Wager should be less than the credit");
                     }
-                } else if ("N".equals(answer)) {
+                } else if ("N".equalsIgnoreCase(answer)) {
                     p2wager = 0;
                     System.out.print(this.currentPlayer.getPlayerID() + " enter wager amount: ");
                     p1wager = input.nextInt();
                 }
             }
             if (p1wager != p2wager) {
-                System.out.print("Do you accept " + this.currentPlayer.getPlayerID() + " wager " + p1wager + "? (Y/N): ");
+                System.out.print(nextPlayer.getPlayerID() + ", do you accept " + this.currentPlayer.getPlayerID() + "'s wager " + p1wager + "? (Y/N): ");
                 answer = input.next();
                 c = answer.charAt(0);
-                if ("Y".equals(c)) {
+                if ("Y".equalsIgnoreCase(answer)) {
                     p2wager = p1wager;
                     if (this.currentPlayer.getCredits() >= p2wager && nextPlayer.getCredits() >= p2wager) {
                         takeWager = false;
                         checkBalance = false;
+                    } else if (p2wager <= 0) {
+                        System.out.println("Wager should be greater than zero");
                     } else {
                         System.out.println("Wager should be less than the credit");
                     }
@@ -484,8 +492,7 @@ public class PazaakGame extends Game {
         PazaakPlayer currentPlayer = this.currentPlayer;
 
         // Find next player
-        int pIndex = (currentPlayer == (PazaakPlayer) this.getPlayers().get(0)) ? 1 : 0;
-        PazaakPlayer nextPlayer = (PazaakPlayer) this.getPlayers().get(pIndex);
+        PazaakPlayer nextPlayer = getNextPlayer();
         System.out.println("\nNext player is " + nextPlayer.getPlayerID());
 
         if (!nextPlayer.isStanding()) {

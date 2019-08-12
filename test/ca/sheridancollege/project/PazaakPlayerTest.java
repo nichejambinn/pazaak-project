@@ -41,13 +41,21 @@ public class PazaakPlayerTest {
      * Test of play method, of class PazaakPlayer.
      */
     @Test
-    public void testPlay() {
+    public void testBadPlay() {
         System.out.println("play");
         PazaakGame game = null;
-        PazaakPlayer instance = null;
+        PazaakPlayer instance = new PazaakPlayer("instance");
         instance.play(game);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(null, instance.getGame());
+    }
+
+    @Test
+    public void testGoodPlay() {
+        System.out.println("play");
+        PazaakGame game = new PazaakGame();
+        PazaakPlayer instance = new PazaakPlayer("instance");
+        instance.play(game);
+        assertEquals(game, instance.getGame());
     }
 
     /**
@@ -58,7 +66,9 @@ public class PazaakPlayerTest {
         System.out.println("stand");
         PazaakPlayer instance = new PazaakPlayer("John");
         instance.stand();
-        assertEquals(instance.isStanding(), true);
+        boolean expResult = true;
+        boolean result = instance.isStanding();
+        assertEquals(expResult, result);
     }
 
     /**

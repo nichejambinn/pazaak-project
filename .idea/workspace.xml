@@ -4,7 +4,9 @@
     <list default="true" id="8e541034-feda-483b-b794-7bd5b09c6d5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakPlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakPlayerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,9 +28,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1312">
-              <caret line="92" column="21" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="21" />
+            <state relative-caret-position="170">
+              <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
               <folding>
+                <element signature="e#309#310#0" expanded="true" />
+                <element signature="e#350#351#0" expanded="true" />
+                <element signature="e#373#374#0" expanded="true" />
                 <element signature="e#3414#3415#0" expanded="true" />
                 <element signature="e#3437#3438#0" expanded="true" />
                 <element signature="e#3578#3579#0" expanded="true" />
@@ -53,17 +58,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakPlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+            <state relative-caret-position="-1023">
+              <caret line="69" column="47" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="82" column="37" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
+            <state relative-caret-position="102">
+              <caret line="76" column="18" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#437#438#0" expanded="true" />
@@ -82,14 +87,6 @@
                 <element signature="e#1081#1082#0" expanded="true" />
                 <element signature="e#1169#1170#0" expanded="true" />
                 <element signature="e#1201#1202#0" expanded="true" />
-                <element signature="e#2695#2696#0" expanded="true" />
-                <element signature="e#2735#2736#0" expanded="true" />
-                <element signature="e#11405#11406#0" expanded="true" />
-                <element signature="e#11441#11442#0" expanded="true" />
-                <element signature="e#12673#12674#0" expanded="true" />
-                <element signature="e#12710#12711#0" expanded="true" />
-                <element signature="e#12813#12814#0" expanded="true" />
-                <element signature="e#12855#12856#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,20 +95,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakGameTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="286">
+              <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="13" column="83" selection-start-line="13" selection-start-column="83" selection-end-line="13" selection-end-column="83" />
+            <state relative-caret-position="-442">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -147,11 +141,13 @@
       <find>SideDeck(</find>
       <find>rematch(</find>
       <find>PazaakG</find>
-      <find>ager(</find>
       <find>endTu</find>
       <find>endTurn(</find>
       <find>startTurn(</find>
       <find>nner(</find>
+      <find>isStanding</find>
+      <find>ager(</find>
+      <find>pIndex</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -168,8 +164,8 @@
         <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/Display.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/TableCard.java" />
-        <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakPlayer.java" />
         <option value="$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakGameTest.java" />
+        <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakPlayer.java" />
         <option value="$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakPlayerTest.java" />
         <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java" />
         <option value="$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java" />
@@ -177,10 +173,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1943" />
-    <option name="height" value="1043" />
+    <option name="x" value="948" />
+    <option name="width" value="981" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -246,7 +241,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -274,7 +269,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Start">
     <configuration name="Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ca.sheridancollege.project.Start" />
       <module name="pazaak-project" />
@@ -288,9 +283,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PazaakPlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pazaak-project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.sheridancollege.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ca.sheridancollege.project" />
+      <option name="MAIN_CLASS_NAME" value="ca.sheridancollege.project.PazaakPlayerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Start" />
+        <item itemvalue="JUnit.PazaakPlayerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -309,7 +320,10 @@
       <workItem from="1565279883447" duration="47000" />
       <workItem from="1565280259416" duration="50608000" />
       <workItem from="1565465871680" duration="3460000" />
-      <workItem from="1565555113410" duration="3424000" />
+      <workItem from="1565555113410" duration="4118000" />
+      <workItem from="1565579679205" duration="374000" />
+      <workItem from="1565628030427" duration="360000" />
+      <workItem from="1565637037204" duration="6004000" />
     </task>
     <task id="LOCAL-00001" summary="implemented dealCard, a lot of constructor changes in our classes">
       <created>1565291534007</created>
@@ -451,11 +465,29 @@
       <option name="project" value="LOCAL" />
       <updated>1565557278618</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="wrote a manual">
+      <created>1565560705791</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1565560705791</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="PazaakPlayerTest - 2019.08.12 at 16h 16m 35s.xml">
+      <configuration name="PazaakPlayerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PazaakPlayerTest - 2019.08.12 at 16h 17m 29s.xml">
+      <configuration name="PazaakPlayerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PazaakPlayerTest - 2019.08.12 at 16h 21m 19s.xml">
+      <configuration name="PazaakPlayerTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60707000" />
+    <option name="totallyTimeSpent" value="68139000" />
   </component>
   <component name="TodoView" selected-index="5">
     <todo-panel id="selected-file">
@@ -468,24 +500,26 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14898786" />
+      <window_info id="Project Explorer" weight="0.32955465" />
+      <window_info id="Properties Pane" weight="0.32955465" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1562753" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Image Layers" order="6" />
+      <window_info anchor="bottom" id="Message Pane" weight="0.3285968" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3285968" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.20781527" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49959514" visible="true" weight="0.44582593" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49959514" visible="true" weight="0.3179396" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3285968" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3285968" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50121456" side_tool="true" weight="0.28241563" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49878544" weight="0.28241563" />
@@ -526,12 +560,13 @@
     <MESSAGE value="tooled up rematch so good" />
     <MESSAGE value="maybe fixed a stalling issue surrounding endTurn, not sure" />
     <MESSAGE value="used some autofill tool to create test classes, methods are empty" />
-    <option name="LAST_COMMIT_MESSAGE" value="used some autofill tool to create test classes, methods are empty" />
+    <MESSAGE value="wrote a manual" />
+    <option name="LAST_COMMIT_MESSAGE" value="wrote a manual" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pazaak-project.vpdm/Class Diagram1.vpd">
-      <provider editor-type-id="VPUMLDiagram" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="VPUMLDiagram" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/Card.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -610,18 +645,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakPlayerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/pazaak-project.vpdm/PazaakDeliverable3.vpd">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="VPUMLDiagram" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1312">
-          <caret line="92" column="21" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="21" />
+        <state relative-caret-position="170">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
           <folding>
+            <element signature="e#309#310#0" expanded="true" />
+            <element signature="e#350#351#0" expanded="true" />
+            <element signature="e#373#374#0" expanded="true" />
             <element signature="e#3414#3415#0" expanded="true" />
             <element signature="e#3437#3438#0" expanded="true" />
             <element signature="e#3578#3579#0" expanded="true" />
@@ -642,27 +677,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="13" column="83" selection-start-line="13" selection-start-column="83" selection-end-line="13" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakGameTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="286">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/PazaakGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="82" column="37" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
+        <state relative-caret-position="102">
+          <caret line="76" column="18" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#437#438#0" expanded="true" />
@@ -681,15 +706,21 @@
             <element signature="e#1081#1082#0" expanded="true" />
             <element signature="e#1169#1170#0" expanded="true" />
             <element signature="e#1201#1202#0" expanded="true" />
-            <element signature="e#2695#2696#0" expanded="true" />
-            <element signature="e#2735#2736#0" expanded="true" />
-            <element signature="e#11405#11406#0" expanded="true" />
-            <element signature="e#11441#11442#0" expanded="true" />
-            <element signature="e#12673#12674#0" expanded="true" />
-            <element signature="e#12710#12711#0" expanded="true" />
-            <element signature="e#12813#12814#0" expanded="true" />
-            <element signature="e#12855#12856#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ca/sheridancollege/project/PazaakPlayerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1023">
+          <caret line="69" column="47" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ca/sheridancollege/project/Start.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-442">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>

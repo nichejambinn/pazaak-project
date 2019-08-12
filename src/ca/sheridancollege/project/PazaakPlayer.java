@@ -9,7 +9,16 @@ public class PazaakPlayer extends Player {
 	private GroupOfCards tableHand;
 	private boolean standing;
 	private boolean turnOver;
-    private PazaakGame game;
+
+	public PazaakGame getGame() {
+		return game;
+	}
+
+	public void setGame(PazaakGame game) {
+		this.game = game;
+	}
+
+	private PazaakGame game;
 
     /**
      * The player is considered playing a game when they store a reference
